@@ -1,10 +1,10 @@
 window.onload = function() {
-    khoitao();
+    //khoitao();
 
     // thêm banner
-    addBanner("images/banner/banner0.png" , "images/banner/banner0.png");
-    for (var i = 1 ; i <= 5 ; ++i) {
-        var link = "img/banners/banner" + i + ".png";
+    addBanner("images/banner/banner1.jpg" , "images/banner/banner1.jpg");
+    for (var i = 2 ; i <= 5 ; ++i) {
+        var link = "images/banner/banner" + i + ".jpg";
         addBanner(link , link);
     }
 
@@ -20,4 +20,16 @@ window.onload = function() {
 		autoplayTimeout: 5000
 	});
 
+}
+
+
+
+function addBanner(img, link) {
+	var newDiv = `<div class='item'>
+						<a target='_blank' href=` + link + `>
+							<img src=` + img + `>
+						</a>
+					</div>`;
+	var banner = document.getElementsByClassName('owl-carousel')[0];
+	banner.innerHTML += newDiv;
 }
