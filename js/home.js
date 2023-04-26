@@ -15,7 +15,7 @@ window.onload = function() {
 		margin: 0,
 		center: true,
 		loop: true,
-		smartSpeed: 450,
+		smartSpeed: 550,
 		autoplay: true,
 		autoplayTimeout: 5000
 	});
