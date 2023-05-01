@@ -14,7 +14,7 @@ body {
     line-height: 1.4;
     color: #323232;
     font-size: 14px;
-    font-weight: 200;
+    font-weight: 400;
     font-family: 'Courier New', Courier, monospace;
 }
 
@@ -30,6 +30,10 @@ li {
 
 a, a:link , a:visited {
     text-decoration: none;
+}
+
+.box {
+    position: relative;
 }
 
 .container {
@@ -57,3 +61,81 @@ a:hover, a:active {
 .banner {
 	padding: 0px 0px 0px 0px;
 }
+
+.head-box {
+    position: sticky;
+    position: -webkit-sticky; /* Safari */
+    top: 0;
+    z-index: 1009;
+    background-color: white;
+    width: 100%;
+    height: 200px;
+    transition-duration: 0.3s ;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0;
+    transition-property: all;
+}
+
+.head-box .box-header {
+    display: flex;
+    justify-content: space-between;     
+    height: 200px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+    position: relative; 
+}
+    .head-box .box-header .gioithieu {
+        padding: 5px ;
+        max-width: 450px;
+        font-size: 20px;
+        /*color: rgb(205, 81, 36);*/
+    }
+    .head-box .box-header .listarea .menu ul.list-box {
+        flex-direction: row;
+        align-items: center;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        border: 0;
+        outline: 0;
+        vertical-align: baseline;
+    }
+        .menu ul.list-box li {
+            align-items: center;
+            display: flex;
+        }
+            .menu ul.list-box li a {
+                display: block;
+                padding: 3px 25px 3px 25px;
+                color: #323232;
+                font-weight: 600;
+                white-space: nowrap;
+                line-height: 30px;
+                text-transform: uppercase;
+                position: relative;
+                font-size: 20px;
+            }
+
+.section {
+    padding: 40px 0;
+}
+
+    .section.box.box-vip {
+        height: 900px;
+    }
+
+    .hostel.hostel-list.vip .modulecontent {
+        margin: 0 -8px;
+        display: flex;
+        flex-wrap: wrap;
+        height: 100%;
+    }
+        .hostel.hostel-list .item {
+            width: calc(100% / 4);
+            margin: 0;
+            padding: 15px 10px;
+            text-align: center;
+            height: 440px;
+        }
