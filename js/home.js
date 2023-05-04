@@ -22,8 +22,6 @@ window.onload = function() {
 
 }
 
-
-
 function addBanner(img, link) {
 	var newDiv = `<div class='item'>
 						<a target='_blank' href=` + link + `>
@@ -32,4 +30,8 @@ function addBanner(img, link) {
 					</div>`;
 	var banner = document.getElementsByClassName('owl-carousel')[0];
 	banner.innerHTML += newDiv;
+}
+
+function getData() {
+	
 }

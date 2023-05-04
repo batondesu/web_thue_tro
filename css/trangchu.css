@@ -63,8 +63,6 @@ a:hover, a:active {
 }
 
 .head-box {
-    position: sticky;
-    position: -webkit-sticky; /* Safari */
     top: 0;
     z-index: 1009;
     background-color: white;
@@ -139,3 +137,206 @@ a:hover, a:active {
             text-align: center;
             height: 440px;
         }
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.wrapper, .container {
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 10px;
+    position: relative;
+}
+
+.container:before, .container:after {
+    display: table;
+    line-height: 0;
+    content: "";
+}
+
+.box-header {
+    margin: 0 0 20px;
+    padding: 0;
+    text-align: center;
+}
+    .box-title.text-upper {
+        text-transform: uppercase;
+    }
+
+    .box-title {
+        position: relative;
+        padding: 10px 0;
+        width: fit-content;
+        margin: auto;
+        font-size: 26px;
+        color: #f54708f3;
+        display: flex;
+        font-weight: 800;
+        flex-direction: column;
+        align-items: center;
+    }
+
+.box-contract .description {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+}
+    .box-contract .box-body .inner {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        margin: 0 -10px;
+        padding: 10px 0;
+    }
+        .box-contract .box-body .inner .item {
+            width: calc(100% / 3 - 20px );
+            border-radius: 12px;
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px 10px;
+            padding-bottom: 80px;
+            margin: 0 10px auto;
+            height: auto;
+            align-content: flex-start;
+            transition: all 0.5s ease-in-out;
+            border: 1px solid #efeeee;
+        }
+            .box-contract .box-body .inner .item .image {
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                width: 76px;
+                height: 76px;
+                margin: auto;
+                padding: 0;
+                text-align: center;
+            }
+            .box-contract .box-body .inner .item .content {
+                width: 100%;
+                text-align: center;
+            }
+                .box-contract .box-body .inner .item .content .title {
+                    color: #f54708f3;
+                    font-size: 16px;
+                    font-weight: 600;
+                    padding-bottom: 8px;
+                    margin: 20px 0 0;
+                    text-transform: uppercase;
+                }
+                .box-contract .box-body .inner .item .content .description {
+                    text-align: center;
+                    font-size: 14px;
+                    font-weight: 600;
+                }
+                    .box-contact .highlight {
+                        color: #f54708f3;
+                    }
+                    .highlight {
+                        font-weight: 600;
+                        color: #F30202;
+                    }
+                    .box-contract .box-body .inner .item .content a {
+                        border: 1px solid #f54708f3;
+                        color: #f54708f3;
+                        background-color: rgba(244, 215, 187, 0.916);
+                        font-size: 14px;
+                        font-weight: 600;
+                        align-items: center;
+                        color: #f54708f3;
+                        position: absolute;
+                        bottom: 10px;
+                        left: 15px;
+                        width: calc(100% - 30px);
+                        display: flex;
+                        height: 40px;
+                        border-radius: 8px;
+                        justify-content: center;
+                        margin: 10px auto;
+                        -webkit-transition: all 0.3s ease-in-out;
+                        -moz-transition: all 0.3s ease-in-out;
+                        -o-transition: all 0.3s ease-in-out;
+                        transition: all 0.3s ease-in-out;
+                    }
+
+
+footer .footer-info a, footer .footer-info h2, footer .footer-info li {
+    color: #fff;
+    font-size: 15px;
+}
+footer .footer-info a.social a, footer .footer-info h2.social a, footer .footer-info li.social a {
+    width: 36px;
+    height: 36px;
+    display: block;
+}
+footer .footer-info a.social, footer .footer-info h2.social, footer .footer-info li.social {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+footer.show {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.show {
+    display: block;
+}
+footer {
+    margin: 0 auto;
+    padding: 10px 0 0 0;
+    border-top: 1px solid #dcdcdc;
+    background-color: #f97140f3;
+}
+    footer .footer-info .inner {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        gap: 5%;
+    }
+        footer .footer-info .inner .footer-logo {
+            display: block;
+            width: 15%;
+            padding: 26px;
+        }
+        footer .footer-info a, footer .footer-info h2, footer .footer-info li {
+            color: #fff;
+            font-size: 15px;
+        }
+        footer .footer-info .inner .content {
+            width: 80%;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+            footer .footer-info .inner .content .block {
+                padding-right: 20px;
+                margin-bottom: 20px;
+            }
+                footer .footer-info .inner .content .block h2 {
+                    font-size: 17px;
+                    margin-bottom: 6px;
+                    text-transform: uppercase;
+                    font-weight: 600;
+                }
+                footer .footer-info .inner .content .block ul {
+                    display: flex;
+                    flex-direction: column;
+                }
+                    footer .footer-info .inner .content .block ul li {
+                        width: 100%;
+                        padding: 2px 0 5px;
+                    }
+                    footer .footer-info li.social a img {
+                        width: 36px;
+                        height: 36px;
+                    }
