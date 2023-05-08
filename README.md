@@ -8,17 +8,15 @@
 
 ### Hướng dẫn cài đặt:
 
-Clone và giải nén (hoặc chuyển) code vào thư mục htdocs (đối với Xampp hay Apache) hoặc www (đối với Wampp, nginx, docker).
+Clone và giải nén (hoặc chuyển) code vào thư mục htdocs (đối với Xampp hay Apache) hoặc www (đối với Wampp, nginx, docker).  
+Truy cập `phpmyadmin`, tạo database `room_rent` và import dữ liệu từ file `room_rent.sql` trong thư mục `Database` để tạo bảng dữ liệu.  
+Cấu hình các thông số kết nối SQL trong file `data_connect.php` cho phù hợp:  
 
-Truy cập `phpmyadmin`, tạo database `room_rent` và import dữ liệu từ file `room_rent.sql` trong thư mục `Database` để tạo bảng dữ liệu.
-
-Cấu hình các thông số kết nối SQL trong file `data_connect.php` cho phù hợp:
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "room_rent";
-
-Gõ đường dẫn sau để chạy ứng dụng web:
-http://localhost/web_thue_tro
+$servername = "localhost";  
+$username = "root";  
+$password = "";  
+$database = "room_rent";  
+  
+Gõ đường dẫn sau để chạy ứng dụng web:  
+http://localhost/web_thue_tro  
 (Nếu thư mực lưu trong `xampp\htdocs` được đặt tên khác thì đường dẫn: http://localhost/("Folder_name"))
