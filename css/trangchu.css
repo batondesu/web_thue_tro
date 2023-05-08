@@ -90,6 +90,9 @@ a:hover, a:active {
         font-size: 20px;
         /*color: rgb(205, 81, 36);*/
     }
+        .head-box .box-header .gioithieu h1 {
+            text-align: left;
+        }
     .head-box .box-header .listarea .menu ul.list-box {
         flex-direction: row;
         align-items: center;
@@ -176,7 +179,7 @@ p {
         width: fit-content;
         margin: auto;
         font-size: 26px;
-        color: #f54708f3;
+        color: #f59222;
         display: flex;
         font-weight: 800;
         flex-direction: column;
@@ -207,7 +210,7 @@ p {
             height: auto;
             align-content: flex-start;
             transition: all 0.5s ease-in-out;
-            border: 1px solid #efeeee;
+            border: 2px solid #efeeee;
         }
             .box-contract .box-body .inner .item .image {
                 justify-content: center;
@@ -294,7 +297,7 @@ footer {
     margin: 0 auto;
     padding: 10px 0 0 0;
     border-top: 1px solid #dcdcdc;
-    background-color: #f97140f3;
+    background-color: #f59222;
 }
     footer .footer-info .inner {
         display: flex;

@@ -51,7 +51,7 @@ function addList() {
                         <ul class="list-box">
                             <li><a href="search.html"> <img src="images/box1">Cầu Giấy </a></li>
                             <li><a href="search.html"> <img src="images/box2">Thanh Xuân </a></li>
-                            <li><a href="search.html"> <img src="images/box3">Đống Đa </a></li>
+                            <li><a href="search.html"> <img src="images/box3">Mỹ Đình </a></li>
                         </ul>
                     </div>
                 </div>
