@@ -11,15 +11,17 @@ class room_class {
         $this->db = new Database();
     }
 
-    public function insert_room($account_name) {
-        $query = "INSERT IN accounts (name) VALUES ('$account_name')";
-        $result = $this->db->insert($query);
-        return $result;
-    }
 
     public function show_room() {
-        
+        $query = "SELECT image FROM image_vid WHERE room_id = 1";
+        $result = $this->db->insert($query);
+        echo $result;
+        return $result;
     }
 }
 
+?>
+
+<?php
+    show_room();
 ?>
