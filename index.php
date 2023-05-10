@@ -37,11 +37,12 @@
 			<div class="owl-carousel owl-theme"></div>
 		</div> 
         
-        <script> addList(); </script>
+         <script> addList(); </script> 
 
 
         <?php include "top_room.php"?>
 
+        <script> addReport(); </script>
         <script> addFooter(); </script>
 
         <div class="scroll-to-top scroll-to-target active" data-target="html"><span class="fa fa-arrow-up"></span></div>
