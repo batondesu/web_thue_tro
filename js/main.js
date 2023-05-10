@@ -58,158 +58,7 @@ function addList() {
             </div>
         </div>
 
-        <div class="section box box-vip">
-            <div class="container">
-                <div class="hostel hostel-list vip">
-                    <div class="modulecontent">
-                        <div class="item vip"> 
-                            <div class="boder">
-                                <div class="image"></div>
-                                <div class="info box">
-                                    <div class="local"> </div>
-                                    <h4 class="title vip"> </div>
-                                    <div class="location-area"> </div>
-                                    <dl class="contact"> </dl>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item vip"> 
-                            <div class="boder">
-                                <div class="image"></div>
-                                <div class="info box">
-                                    <div class="local"> </div>
-                                    <h4 class="title vip"> </div>
-                                    <div class="location-area"> </div>
-                                    <dl class="contact"> </dl>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item vip"> 
-                            <div class="boder">
-                                <div class="image"></div>
-                                <div class="info box">
-                                    <div class="local"> </div>
-                                    <h4 class="title vip"> </div>
-                                    <div class="location-area"> </div>
-                                    <dl class="contact"> </dl>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item vip"> 
-                            <div class="boder">
-                                <div class="image"></div>
-                                <div class="info box">
-                                    <div class="local"> </div>
-                                    <h4 class="title vip"> </div>
-                                    <div class="location-area"> </div>
-                                    <dl class="contact"> </dl>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item vip"> 
-                            <div class="boder">
-                                <div class="image"></div>
-                                <div class="info box">
-                                    <div class="local"> </div>
-                                    <h4 class="title vip"> </div>
-                                    <div class="location-area"> </div>
-                                    <dl class="contact"> </dl>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item vip"> 
-                            <div class="boder">
-                                <div class="image"></div>
-                                <div class="info box">
-                                    <div class="local"> </div>
-                                    <h4 class="title vip"> </div>
-                                    <div class="location-area"> </div>
-                                    <dl class="contact"> </dl>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item vip"> 
-                            <div class="boder">
-                                <div class="image"></div>
-                                <div class="info box">
-                                    <div class="local"> </div>
-                                    <h4 class="title vip"> </div>
-                                    <div class="location-area"> </div>
-                                    <dl class="contact"> </dl>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item vip"> 
-                            <div class="boder">
-                                <div class="image"></div>
-                                <div class="info box">
-                                    <div class="local"> </div>
-                                    <h4 class="title vip"> </div>
-                                    <div class="location-area"> </div>
-                                    <dl class="contact"> </dl>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        <div class="info"
-
-        </div>
-    </div>
-
-    <div class="section box box-contract">
-        <div class="container">
-            <div class="box-header"> <h1 class="box-title text-center text-upper text-black">Hỗ trợ khách hàng và phản hồi </h1> </div>
-            <div class="description d-flex"> 
-                <p class="text-center">
-                Bạn cần hỗ trợ 
-                    <span class="highlight">
-                    Tìm kiếm, Đăng tin, Thanh toán?
-                    </span> 
-                    Liên hệ với chúng tôi ngay qua các hình thức:
-                </p>
-            </div>
-            <div class="box-body">
-                <div class="inner section">
-                    
-                    <div class="item" data-aos="fade-up">
-                        <div class="image"><img src="https://tromoi.com/frontend/home/images/icon/mail.svg"></div>
-                        <div class="content">
-                            <div class="title">Email</div>
-                            <div class="description">
-                                    <p>Chúng tôi sẽ trả lời thắc mắc của bạn trong vòng 24 giờ.</p>
-                                    <a href="mailto:21020091@vnu.edu.vn" target="_blank">Email ngay</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="item" data-aos="fade-up">
-                        <div class="image"><img src="https://tromoi.com/frontend/home/images/icon/messenger.svg"></div>
-                        <div class="content">
-                            <div class="title">Facebook</div>
-                            <div class="description">
-                                <p>Nhắn tin với chúng tôi trên nền tảng facebook messenger</p>
-                                <a href="https://www.facebook.com/" target="_blank">Gửi tin nhắn</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="item" data-aos="fade-up">
-                        <div class="image"><img src="https://tromoi.com/frontend/home/images/icon/zalo.svg"></div>
-                        <div class="content">
-                            <div class="title">Zalo</div>
-                            <div class="description">
-                                <p>Nhắn tin hoặc gọi cho chúng tôi trên nền tảng Zalo</p>
-                                <a href="https://zalo.me/0368432906" target="_blank">Liên hệ ngay</a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-			</div>
-        </div>
+        <br><br><br>
     </div>
     `)
 }
@@ -217,6 +66,58 @@ function addList() {
 
 function addFooter() {
  document.write(`
+ <div class="section box box-contract">
+ <div class="container">
+     <div class="box-header"> <h1 class="box-title text-center text-upper text-black">Hỗ trợ khách hàng và phản hồi </h1> </div>
+     <div class="description d-flex"> 
+         <p class="text-center">
+         Bạn cần hỗ trợ 
+             <span class="highlight">
+             Tìm kiếm, Đăng tin, Thanh toán?
+             </span> 
+             Liên hệ với chúng tôi ngay qua các hình thức:
+         </p>
+     </div>
+     <div class="box-body">
+         <div class="inner section">
+             
+             <div class="item" data-aos="fade-up">
+                 <div class="image"><img src="https://tromoi.com/frontend/home/images/icon/mail.svg"></div>
+                 <div class="content">
+                     <div class="title">Email</div>
+                     <div class="description">
+                             <p>Chúng tôi sẽ trả lời thắc mắc của bạn trong vòng 24 giờ.</p>
+                             <a href="mailto:21020091@vnu.edu.vn" target="_blank">Email ngay</a>
+                     </div>
+                 </div>
+             </div>
+             
+             <div class="item" data-aos="fade-up">
+                 <div class="image"><img src="https://tromoi.com/frontend/home/images/icon/messenger.svg"></div>
+                 <div class="content">
+                     <div class="title">Facebook</div>
+                     <div class="description">
+                         <p>Nhắn tin với chúng tôi trên nền tảng facebook messenger</p>
+                         <a href="https://www.facebook.com/" target="_blank">Gửi tin nhắn</a>
+                     </div>
+                 </div>
+             </div>
+             
+             <div class="item" data-aos="fade-up">
+                 <div class="image"><img src="https://tromoi.com/frontend/home/images/icon/zalo.svg"></div>
+                 <div class="content">
+                     <div class="title">Zalo</div>
+                     <div class="description">
+                         <p>Nhắn tin hoặc gọi cho chúng tôi trên nền tảng Zalo</p>
+                         <a href="https://zalo.me/0368432906" target="_blank">Liên hệ ngay</a>
+                     </div>
+                 </div>
+             </div>
+
+         </div>
+     </div>
+ </div>
+</div>
     <footer id="footer" class="show">
         <div class="footer-info">
             <div class="container">

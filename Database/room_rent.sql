@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: May 10, 2023 at 07:03 PM
--- Server version: 10.4.24-MariaDB-log
--- PHP Version: 7.4.29
+-- Máy chủ: localhost:3306
+-- Thời gian đã tạo: Th5 09, 2023 lúc 10:34 AM
+-- Phiên bản máy phục vụ: 10.4.27-MariaDB
+-- Phiên bản PHP: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `room_rent`
+-- Cơ sở dữ liệu: `room_rent`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `accounts`
+-- Cấu trúc bảng cho bảng `accounts`
 --
 
 CREATE TABLE `accounts` (
@@ -33,22 +33,22 @@ CREATE TABLE `accounts` (
   `password` varchar(20) NOT NULL,
   `email` text NOT NULL,
   `tele` varchar(12) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `image_vid`
+-- Cấu trúc bảng cho bảng `image_vid`
 --
 
 CREATE TABLE `image_vid` (
   `room_id` int(12) NOT NULL,
-  `image` text NOT NULL,
+  `image` varchar(1000) NOT NULL,
   `vid` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `image_vid`
+-- Đang đổ dữ liệu cho bảng `image_vid`
 --
 
 INSERT INTO `image_vid` (`room_id`, `image`, `vid`) VALUES
@@ -76,98 +76,84 @@ INSERT INTO `image_vid` (`room_id`, `image`, `vid`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `post`
---
-
-CREATE TABLE `post` (
-  `post_id` int(12) NOT NULL,
-  `room_id` int(12) NOT NULL,
-  `title` varchar(50) NOT NULL,
-  `address` varchar(50) NOT NULL,
-  `user_id` int(12) NOT NULL,
-  `description` text NOT NULL,
-  `created` date NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `rental_room`
+-- Cấu trúc bảng cho bảng `rental_room`
 --
 
 CREATE TABLE `rental_room` (
   `user_id` int(12) NOT NULL,
   `room_id` int(12) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `room_booking`
+-- Cấu trúc bảng cho bảng `room_booking`
 --
 
 CREATE TABLE `room_booking` (
   `user_id` int(12) NOT NULL,
   `room_id` int(12) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `room_info`
+-- Cấu trúc bảng cho bảng `room_info`
 --
 
 CREATE TABLE `room_info` (
   `room_id` int(12) NOT NULL,
-  `price` int(12) NOT NULL,
-  `size` int(12) NOT NULL,
+  `status` text NOT NULL,
+  `price` float NOT NULL,
+  `size` int(11) NOT NULL,
   `city` varchar(20) NOT NULL,
   `district` varchar(20) NOT NULL,
   `ward` varchar(20) NOT NULL,
+  `note` text DEFAULT NULL,
   `type` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `room_info`
+-- Đang đổ dữ liệu cho bảng `room_info`
 --
 
-INSERT INTO `room_info` (`room_id`, `price`, `size`, `city`, `district`, `ward`, `type`) VALUES
-(1, 1, 30, 'TP. Hồ Chí Minh', 'Quận Thủ Đức', '', 'Phòng trọ'),
-(2, 1, 25, 'TP. Hồ Chí Minh', 'Quận Tân Bình', '', 'Phòng trọ'),
-(3, 1, 28, 'TP. Hồ Chí Minh', 'Quận Gò Vấp', '', 'Phòng trọ'),
-(4, 2, 20, 'TP. Hồ Chí Minh', 'Quận Tân Bình', '', 'Phòng trọ'),
-(5, 2, 20, 'TP. Hồ Chí Minh', 'Quận Tân Phú', '', 'Phòng trọ'),
-(6, 5, 22, 'TP. Hồ Chí Minh', 'Quận 10', '', 'Phòng trọ'),
-(7, 3, 25, 'TP. Hồ Chí Minh', 'Quận Tân Bình', '', 'Phòng trọ'),
-(8, 2, 12, 'TP. Hồ Chí Minh', 'Quận Bình Tân', '', 'Phòng trọ'),
-(9, 5, 30, 'TP. Hồ Chí Minh', 'Quận Bình Thạnh', '', 'Phòng trọ'),
-(10, 1, 30, 'TP. Hồ Chí Minh', 'Quận Bình Thạnh', '', 'Phòng trọ'),
-(11, 4, 24, 'TP. Hồ Chí Minh', 'Quận 10', '', 'Phòng trọ'),
-(12, 2, 20, 'TP. Hồ Chí Minh', 'Quận 7', '', 'Phòng trọ'),
-(13, 1, 20, 'TP. Hồ Chí Minh', 'Quận 7', '', 'Phòng trọ'),
-(14, 4, 20, 'TP. Hồ Chí Minh', 'Quận 6', '', 'Phòng trọ'),
-(15, 3, 25, 'TP. Hồ Chí Minh', 'Quận 6', '', 'Phòng trọ'),
-(16, 5, 20, 'TP. Hồ Chí Minh', 'Quận Bình Thạnh', '', 'Phòng trọ'),
-(17, 3, 16, 'TP. Hồ Chí Minh', 'Quận Bình Thạnh', '', 'Phòng trọ'),
-(18, 2, 16, 'TP. Hồ Chí Minh', 'Quận 7', '', 'Phòng trọ'),
-(19, 5, 22, 'TP. Hồ Chí Minh', 'Quận 10', '', 'Phòng trọ'),
-(20, 3, 27, 'TP. Hồ Chí Minh', 'Huyện Nhà Bè', '', 'Phòng trọ');
+INSERT INTO `room_info` (`room_id`, `status`, `price`, `size`, `city`, `district`, `ward`, `note`, `type`) VALUES
+(1, '', 1.2, 30, 'TP. Hồ Chí Minh', 'Quận Thủ Đức', '', NULL, 'Phòng trọ'),
+(2, '', 1.4, 25, 'TP. Hồ Chí Minh', 'Quận Tân Bình', '', NULL, 'Phòng trọ'),
+(3, '', 0.9, 28, 'TP. Hồ Chí Minh', 'Quận Gò Vấp', '', NULL, 'Phòng trọ'),
+(4, '', 2, 20, 'TP. Hồ Chí Minh', 'Quận Tân Bình', '', NULL, 'Phòng trọ'),
+(5, '', 1.7, 20, 'TP. Hồ Chí Minh', 'Quận Tân Phú', '', NULL, 'Phòng trọ'),
+(6, '', 4.5, 22, 'TP. Hồ Chí Minh', 'Quận 10', '', NULL, 'Phòng trọ'),
+(7, '', 2.9, 25, 'TP. Hồ Chí Minh', 'Quận Tân Bình', '', NULL, 'Phòng trọ'),
+(8, '', 1.5, 12, 'TP. Hồ Chí Minh', 'Quận Bình Tân', '', NULL, 'Phòng trọ'),
+(9, '', 5, 30, 'TP. Hồ Chí Minh', 'Quận Bình Thạnh', '', NULL, 'Phòng trọ'),
+(10, '', 1.4, 30, 'TP. Hồ Chí Minh', 'Quận Bình Thạnh', '', NULL, 'Phòng trọ'),
+(11, '', 3.5, 24, 'TP. Hồ Chí Minh', 'Quận 10', '', NULL, 'Phòng trọ'),
+(12, '', 2.3, 20, 'TP. Hồ Chí Minh', 'Quận 7', '', NULL, 'Phòng trọ'),
+(13, '', 0.7, 20, 'TP. Hồ Chí Minh', 'Quận 7', '', NULL, 'Phòng trọ'),
+(14, '', 3.8, 20, 'TP. Hồ Chí Minh', 'Quận 6', '', NULL, 'Phòng trọ'),
+(15, '', 3, 25, 'TP. Hồ Chí Minh', 'Quận 6', '', NULL, 'Phòng trọ'),
+(16, '', 4.5, 20, 'TP. Hồ Chí Minh', 'Quận Bình Thạnh', '', NULL, 'Phòng trọ'),
+(17, '', 3.2, 16, 'TP. Hồ Chí Minh', 'Quận Bình Thạnh', '', NULL, 'Phòng trọ'),
+(18, '', 2, 16, 'TP. Hồ Chí Minh', 'Quận 7', '', NULL, 'Phòng trọ'),
+(19, '', 5, 22, 'TP. Hồ Chí Minh', 'Quận 10', '', NULL, 'Phòng trọ'),
+(20, '', 2.5, 27, 'TP. Hồ Chí Minh', 'Huyện Nhà Bè', '', NULL, 'Phòng trọ');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `room_shared`
+-- Cấu trúc bảng cho bảng `room_shared`
 --
 
 CREATE TABLE `room_shared` (
   `user_id` int(12) NOT NULL,
   `room_id` int(12) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Cấu trúc bảng cho bảng `user`
 --
 
 CREATE TABLE `user` (
@@ -177,100 +163,85 @@ CREATE TABLE `user` (
   `email` text NOT NULL,
   `tele` varchar(12) NOT NULL,
   `address` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `accounts`
+-- Chỉ mục cho bảng `accounts`
 --
 ALTER TABLE `accounts`
   ADD PRIMARY KEY (`account_id`);
 
 --
--- Indexes for table `image_vid`
+-- Chỉ mục cho bảng `image_vid`
 --
 ALTER TABLE `image_vid`
   ADD KEY `image_vid_room_info_pk` (`room_id`);
 
 --
--- Indexes for table `post`
---
-ALTER TABLE `post`
-  ADD PRIMARY KEY (`post_id`),
-  ADD KEY `post_room_info_pk` (`room_id`),
-  ADD KEY `post_user_pk` (`user_id`);
-
---
--- Indexes for table `rental_room`
+-- Chỉ mục cho bảng `rental_room`
 --
 ALTER TABLE `rental_room`
   ADD KEY `rental_room_room_info_pk` (`room_id`);
 
 --
--- Indexes for table `room_booking`
+-- Chỉ mục cho bảng `room_booking`
 --
 ALTER TABLE `room_booking`
   ADD KEY `room_bookong_room_info_pk` (`room_id`);
 
 --
--- Indexes for table `room_info`
+-- Chỉ mục cho bảng `room_info`
 --
 ALTER TABLE `room_info`
   ADD PRIMARY KEY (`room_id`);
 
 --
--- Indexes for table `room_shared`
+-- Chỉ mục cho bảng `room_shared`
 --
 ALTER TABLE `room_shared`
   ADD KEY `room_shared_room_info_pk` (`room_id`);
 
 --
--- Indexes for table `user`
+-- Chỉ mục cho bảng `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`user_id`),
   ADD KEY `user_accounts_pk` (`account_id`);
 
 --
--- Constraints for dumped tables
+-- Các ràng buộc cho các bảng đã đổ
 --
 
 --
--- Constraints for table `image_vid`
+-- Các ràng buộc cho bảng `image_vid`
 --
 ALTER TABLE `image_vid`
   ADD CONSTRAINT `image_vid_room_info_pk` FOREIGN KEY (`room_id`) REFERENCES `room_info` (`room_id`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `post`
---
-ALTER TABLE `post`
-  ADD CONSTRAINT `post_room_info_pk` FOREIGN KEY (`room_id`) REFERENCES `room_info` (`room_id`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `post_user_pk` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON UPDATE CASCADE;
-
---
--- Constraints for table `rental_room`
+-- Các ràng buộc cho bảng `rental_room`
 --
 ALTER TABLE `rental_room`
   ADD CONSTRAINT `rental_room_room_info_pk` FOREIGN KEY (`room_id`) REFERENCES `room_info` (`room_id`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `room_booking`
+-- Các ràng buộc cho bảng `room_booking`
 --
 ALTER TABLE `room_booking`
   ADD CONSTRAINT `room_bookong_room_info_pk` FOREIGN KEY (`room_id`) REFERENCES `room_info` (`room_id`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `room_shared`
+-- Các ràng buộc cho bảng `room_shared`
 --
 ALTER TABLE `room_shared`
   ADD CONSTRAINT `room_shared_room_info_pk` FOREIGN KEY (`room_id`) REFERENCES `room_info` (`room_id`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `user`
+-- Các ràng buộc cho bảng `user`
 --
 ALTER TABLE `user`
   ADD CONSTRAINT `user_accounts_pk` FOREIGN KEY (`account_id`) REFERENCES `accounts` (`account_id`) ON UPDATE CASCADE;

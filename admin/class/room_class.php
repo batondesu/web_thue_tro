@@ -21,3 +21,7 @@ class room_class {
 }
 
 ?>
+
+<?php
+    show_room();
+?>
