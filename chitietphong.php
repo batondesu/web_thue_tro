@@ -1,3 +1,33 @@
+<?php
+    include "admin/database.php";
+?>
+
+<?php
+    class roominfo {
+        private $db;
+        public function __construct() {
+            $this->db = new Database();
+        }
+
+        public function show_room($room_id) {
+            $query = "SELECT * FROM room_info WHERE room_id = $room_id";
+            $result = $this->db->select($query);
+            return $result;
+        }
+    }
+?>
+
+<?php
+    $room = new roominfo;
+    $room_id = $_POST['room_id'];
+    $room_info = $room->show_room($room_id);
+    $row = $room_info->fetch_assoc();
+    $image_url = $row["image"];
+    $price = $row["price"];
+    $size = $row["size"];
+    $diachi = $row["ward"] + $row["district"] + $row["city"];
+?>
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -39,10 +69,10 @@
             <div class="container" style="height: auto !important;">
                 <!------------------->
                 <div class="detail-gallery">
-                    <div class="main_image">
-                        <div class="item alone" style="background-image:url('https://tromoi.com/uploads/guest/o_1gu6u7eso1ta316fq10k8g1c1sshe.jpg')">      
+                    <div class="main_image" name="room_id">
+                        <div class="item alone" style="background-image:url('image_url')">      
                             <a href="https://tromoi.com/uploads/guest/o_1gu6u7eso1ta316fq10k8g1c1sshe.jpg" data-fancybox="group-image">
-                            <img src="https://tromoi.com/uploads/guest/o_1gu6u7eso1ta316fq10k8g1c1sshe.jpg" data-pagespeed-url-hash="83078010" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+                            <img src="image_url" data-pagespeed-url-hash="83078010" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
                             </a>
                         </div>             
                         <div class="see-all">
