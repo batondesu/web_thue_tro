@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2023 at 12:30 PM
+-- Generation Time: May 11, 2023 at 01:24 PM
 -- Server version: 10.4.24-MariaDB-log
 -- PHP Version: 7.4.29
 
@@ -20,43 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `room_rent`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `accounts`
---
-
-CREATE TABLE `accounts` (
-  `account_id` int(12) NOT NULL,
-  `name` varchar(20) NOT NULL,
-  `password` varchar(20) NOT NULL,
-  `email` text NOT NULL,
-  `tele` varchar(12) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `accounts`
---
-
-INSERT INTO `accounts` (`account_id`, `name`, `password`, `email`, `tele`) VALUES
-(1, 'Mrbinh', '0936456678', '', '0936456678'),
-(2, 'VChung', '0896119779', '', '0896119779'),
-(3, 'kenshin8522', '12345678', '', '0906878018'),
-(4, 'Nguyễn Phạm Đức Cườn', '0938864405', '', '0938864405'),
-(5, 'khang275', '123456', '', '0938297275'),
-(6, 'VINH NGUYỄN', '0938662616', '', '0938662616'),
-(7, 'huỳnh thị mỹ trâm', '0916668326', '', '0916668326'),
-(8, 'Bích Đào', '0935101516', '', '0935101516'),
-(9, 'Nguyen Thi Bich Thuy', '0983344682', '', '0983344682'),
-(10, 'Hoàng Phúc', '0931313570', '', '0931313570'),
-(11, 'Anh Cảnh', '0913635257', '', '0913635257'),
-(12, 'ThuecanhominiQ7', '0988373731', '', '0988373731'),
-(13, 'Loan', '0978111919', '', '0978111919'),
-(14, 'Chị Đoan', '0903934756', '', '0903934756'),
-(15, 'Cao thi cuc', '0909634270', '', '0909634270'),
-(16, 'van528', '0919990528', '', '0919990528'),
-(17, 'thuyngocnt78', '1234567', 'thuyngocnt78@gmail.com', '0907667248');
 
 -- --------------------------------------------------------
 
@@ -204,48 +167,45 @@ CREATE TABLE `room_shared` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Table structure for table `users`
 --
 
-CREATE TABLE `user` (
+CREATE TABLE `users` (
   `user_id` int(12) NOT NULL,
-  `account_id` int(12) NOT NULL,
   `User_name` varchar(50) NOT NULL,
+  `account_name` varchar(50) NOT NULL,
+  `password` text NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `tel` text NOT NULL,
   `address` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `user`
+-- Dumping data for table `users`
 --
 
-INSERT INTO `user` (`user_id`, `account_id`, `User_name`, `address`) VALUES
-(1, 1, 'Mr Bình', ''),
-(2, 2, 'Văn Chung', ''),
-(3, 3, 'Nguyễn Văn Kiên', ''),
-(4, 4, 'Nguyễn Phạm Đức Cường', ''),
-(5, 5, 'Phạm Văn Khang', ''),
-(6, 6, 'VINH NGUYỄN', ''),
-(7, 7, 'Huỳnh Thị Mỹ Trâm', ''),
-(8, 8, 'Bích Đào', ''),
-(9, 9, 'Nguyen Thi Bich Thuy', ''),
-(10, 10, 'Hoàng Phúc', ''),
-(11, 11, 'Anh Cảnh', ''),
-(12, 12, 'ThuecanhominiQ7', ''),
-(13, 13, 'Loan', ''),
-(14, 14, 'Chị Đoan', ''),
-(15, 15, 'Cao Thị Cúc', ''),
-(16, 16, 'Nguyễn Văn', ''),
-(17, 17, 'Nguyễn Thị NGọc Thúy', '');
+INSERT INTO `users` (`user_id`, `User_name`, `account_name`, `password`, `email`, `tel`, `address`) VALUES
+(1, 'MR Bình', 'Mrbinh', '0936456678', '', '0936456678', ''),
+(2, 'Văn Chung', 'VChung', '0896119779', '', '0896119779', ''),
+(3, 'Nguyễn Văn Kiên', 'kenshin8522', '12345678', '', '0906878018', ''),
+(4, 'Nguyễn Phạm Đức Cường', 'CuongNguyen', '0938864405', '', '0938864405', ''),
+(5, 'Đỗ Văn Khang', 'khang275', '123456', '', '0938297275', ''),
+(6, 'VINH NGUYỄN', 'VinhNg', '0938662616', '', '0938662616', ''),
+(7, 'huỳnh thị mỹ trâm', 'TramH', '0916668326', '', '0916668326', ''),
+(8, 'Bích Đào', 'Bichdao', '0935101516', '', '0935101516', ''),
+(9, 'Nguyen Thi Bich Thuy', 'BichThuyNT', '0983344682', '', '0983344682', ''),
+(10, 'Hoàng Phúc', 'HoangP', '0931313570', '', '0931313570', ''),
+(11, 'Anh Cảnh', 'anhcanh', '0913635257', '', '0913635257', ''),
+(12, 'Nguyễn Văn Tú', 'ThuecanhominiQ7', '0988373731', '', '0988373731', ''),
+(13, 'Loan', 'loan1919', '0978111919', '', '0978111919', ''),
+(14, 'Chị Đoan', 'Chidoan', '0903934756', '', '0903934756', ''),
+(15, 'Cao thi cuc', 'cuccao', '0909634270', '', '0909634270', ''),
+(16, 'Phạm Đình Văn', 'van528', '0919990528', '', '0919990528', ''),
+(17, 'Nguyễn Thị Ngọc Thúy', 'thuyngocnt78', '1234567', 'thuyngocnt78@gmail.com', '0907667248', '');
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `accounts`
---
-ALTER TABLE `accounts`
-  ADD PRIMARY KEY (`account_id`);
 
 --
 -- Indexes for table `image_vid`
@@ -278,11 +238,10 @@ ALTER TABLE `room_shared`
   ADD KEY `room_shared_room_info_pk` (`room_id`);
 
 --
--- Indexes for table `user`
+-- Indexes for table `users`
 --
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`user_id`),
-  ADD KEY `user_accounts_pk` (`account_id`);
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`);
 
 --
 -- Constraints for dumped tables
@@ -311,12 +270,6 @@ ALTER TABLE `room_booking`
 --
 ALTER TABLE `room_shared`
   ADD CONSTRAINT `room_shared_room_info_pk` FOREIGN KEY (`room_id`) REFERENCES `room_info` (`room_id`) ON UPDATE CASCADE;
-
---
--- Constraints for table `user`
---
-ALTER TABLE `user`
-  ADD CONSTRAINT `user_accounts_pk` FOREIGN KEY (`account_id`) REFERENCES `accounts` (`account_id`) ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
