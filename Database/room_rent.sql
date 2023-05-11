@@ -107,6 +107,32 @@ CREATE TABLE `rental_room` (
   `room_id` int(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `rental_room`
+--
+
+INSERT INTO `rental_room` (`user_id`, `room_id`) VALUES
+(1, 1),
+(2, 2),
+(2, 3),
+(2, 10),
+(3, 4),
+(4, 5),
+(5, 6),
+(6, 7),
+(7, 8),
+(8, 9),
+(9, 11),
+(10, 12),
+(10, 13),
+(11, 14),
+(12, 15),
+(13, 16),
+(14, 17),
+(15, 18),
+(16, 19),
+(17, 20);
+
 -- --------------------------------------------------------
 
 --
