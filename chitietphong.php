@@ -17,37 +17,6 @@
     }
 ?>
 
-<?php
-   /* $list_image = [];
-    $dem = 0;
-    $room = new roominfo;
-    $room_info = $room->show_room(2,"room_info");
-    $room_img = $room->show_room(2,"image_vid");
-    if ( $room_info->num_rows > 0 ) {
-        $row = $room_info->fetch_assoc();
-        $row1 = $room_img->fetch_assoc();
-        $image_url = $row1["image"];
-        $price = $row["price"];
-        $size = $row["size"];
-
-        $image_url .= " ";
-        $image = "";
-        for ($i = 0 ; $i < strlen($image_url); ++$i) {
-            if ( substr($image, -4) == ".jpg" ) {
-                $list_image[++$dem] = $image;
-                echo $image."<br/>";
-                $image = "";
-            }
-            else {
-                $image .= $image_url[$i];
-            }
-        }
-        echo $row["ward"].' '.$row["district"].' '.$row["city"]."<br />";
-        echo $image_url."<br/>";
-        echo $price;
-    }*/
-?>
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -80,16 +49,10 @@
 </head>
 
 <body>
-    <section>
-        <!-- FOOTER <script> addHeader(); </script>-->
-        
-    
+<section>
+    <!-- FOOTER -->
 
-        <?php /*
-        $room_id = $_GET['name'];
-        $jsonArray = json_encode($array);
-        $jsonNumber = json_encode($count);*/
-    ?>
+    <script> addHeader(); </script>
 
     <?php 
         $room_id = $_GET['name'];
@@ -122,7 +85,7 @@
     ?>
 
     
-    <div id="main-body" style="height: auto !important; min-height: 0px !important;">
+        <div id="main-body" style="height: auto !important; min-height: 0px !important;">
             <div id="hostel-detail" style="height: auto !important;">
                 <div class="container" style="height: auto !important;">
                     
@@ -147,7 +110,7 @@
                                     <div class="module">
                                         <div class="moduletitle">
                                             <div class="blog-title">
-                                                <h3>Cho thuê nhà 2 tầng DT 60 m2</h3>
+                                                <h3> <?php echo $row["title"] ?> </h3>
                                             </div>
                                             <div class="social-date">
                                                 <a href="javascript:void(0);" onclick="saveHostel(20642,23417)" class="tag saved heart-20642">Lưu tin</a>
@@ -158,12 +121,12 @@
                                                 <div class="info-wrapper">
                                                     <dl>
                                                         <dt>Địa chỉ:</dt>
-                                                        <dd>Tổ 28, TT Đông Anh, Đông Anh</dd>
+                                                        <dd> <?php echo $row["note"].' '.$row["ward"].' '.$row["district"].' '.$row["city"] ?> </dd>
                                                     </dl>
                                                     <dl>
                                                         <dt>Giá:</dt>
                                                         <dd>
-                                                            Khoảng 2.000.000 đồng/tháng
+                                                            Khoảng <?php echo $row["price"] ?> triệu VND/1 tháng
                                                         </dd>
                                                     </dl>
                                                     <div class="info">
@@ -171,58 +134,53 @@
                                                             <dl>
                                                                 <dt>Hình thức:</dt>
                                                                 <dd>
-                                                                    Trọ nhà nguyên căn - Chủ quản 
+                                                                    <?php echo $row["type"] ?> 
                                                             </dd>
                                                             </dl>
                                                             <dl>
                                                                 <dt>Diện tích:</dt>
-                                                                <dd>Khoảng 60 m<sup>2</sup></dd>
-                                                            </dl>
-                                                            <dl>
-                                                                <dt>Số phòng:</dt>
-                                                                <dd>3 phòng</dd>
-                                                            </dl>
-                                                            <dl>
-                                                                <dt>Phòng trống:</dt>
-                                                                <dd>
-                                                                    2 phòng                        
-                                                                </dd>
+                                                                <dd>Khoảng <?php echo $row["size"] ?> m<sup>2</sup></dd>
                                                             </dl>
                                                             <dl>
                                                                 <dt>Ở tối đa:</dt>
                                                                 <dd>
+                                                                    <?php echo $row["size"]/10 ?> người
                                                                 </dd>
                                                             </dl>
+                                                            <dl>
+                                                                <dt>Ngày cập nhật:</dt>
+                                                                <dd class="published">17-04-2023 13:25:33</dd>
+                                                            </dl>
+
                                                         </div>
                                                         <div class="i-right">
                                                             <dl>
                                                                 <dt>Người đăng:</dt>
                                                                 <dd>
-                                                                    <span>Trần Tuấn</span>
+                                                                    <span><?php echo $row["user_name"] ?></span>
                                                                 </dd>
                                                             </dl>
                                                             <dl>
                                                                 <dt>Điện thoại:</dt>
                                                                 <dd class="phone">
-                                                                    <a href="tel:0977824408">
-                                                                        <span>0977824408</span>
+                                                                    <a href="tel:<?php echo $row["tele"] ?>">
+                                                                        <span><?php echo $row["tele"] ?></span>
                                                                     </a>
                                                                 </dd>
                                                             </dl>
                                                             <dl>
                                                                 <dt>Facebook:</dt>
                                                                 <dd>
+                                                                    <?php echo $row["facebook"] ?>
                                                                 </dd>
                                                             </dl>
                                                             <dl>
-                                                                <dt>Email:</dt>
+                                                                <dt>Zalo:</dt>
                                                                 <dd>
-                                                                                        </dd>
+                                                                    <?php echo $row["zalo"] ?>
+                                                                </dd>
                                                             </dl>
-                                                            <dl>
-                                                                <dt>Ngày cập nhật:</dt>
-                                                                <dd class="published">17-04-2023 13:25:33</dd>
-                                                            </dl>
+                                                            
                                                         </div>
                                                     </div>
                                                 </div>
@@ -265,30 +223,30 @@
                                         <dl>
                                             <dt><i class="fa-regular fa-circle-user"></i></dt>
                                             <dd>
-                                                <h3>Trần Tuấn</h3>
+                                                <h3> <?php echo $row["user_name"] ?> </h3>
                                             </dd>
                                         </dl>
                                         <dl>
                                             <dt><i class="fa-regular fa-envelope"></i></dt>
                                             <dd>
-                                                <a href="mailto:tbdtuan@gmail.com">tbdtuan@gmail.com</a>
+                                                <a href="mailto:<?php echo $row["email"] ?>"><?php echo $row["email"] ?></a>
                                             </dd>
                                         </dl>
                                         <dl>
                                             <dt><i class="fa-solid fa-phone"></i></dt>
                                             <dd>
-                                                <a href="tel:0977824408">0977824408</a>
+                                                <a href="tel:<?php echo $row["tele"] ?>"><?php echo $row["tele"] ?></a>
                                             </dd>
                                         </dl>
                                         <div class="phone">
-                                            <a class="btn-global" href="tel:0977824408"> Gọi ngay </a>
+                                            <a class="btn-global" href="tel:<?php echo $row["tele"] ?>"> Gọi ngay </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!------------------->
+                    <!-----------------
                     <div class="modal fade" id="box-review" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content box-info-review">
@@ -309,17 +267,14 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
+
                 </div> 
             </div>
 
-        <!-- FOOTER <script>addFooter();</script>-->
-        
+    <!-- FOOTER -->
+    <script>addFooter();</script>
 
-    </section>
-
+</section>
 </body>
-
-    <script></script>
-
 </html>
