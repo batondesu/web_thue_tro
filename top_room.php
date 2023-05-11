@@ -7,6 +7,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <link rel="stylesheet" href="css/header.css">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
     integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
@@ -14,7 +15,7 @@
 
     <style>
         .img-fluid.d-block {
-            height: 25vh;
+            height: 22vh;
         }
 
         .card {
@@ -23,8 +24,8 @@
         }
 
         .card-text-truncate {
-            display: -webkit-box;
-            -webkit-line-clamp: 6;
+             display: -webkit-box;
+            -webkit-line-clamp: 5;
             -webkit-box-orient: vertical;
             overflow-y: auto;
         }
@@ -44,24 +45,27 @@
     <section id="gallery">
     <div class="container">
         <div class="row">
-        <?php
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_array()) { 
-                $image_url = $row["image"];
-                $list_image = [];
-                $dem = 0;
+            <?php
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_array()) { 
+                        $link = "";
+                        $link .= "chitietphong.php?name=";
+                        $link .= $row["room_id"];
+                        $image_url = $row["image"];
+                        $list_image = [];
+                        $dem = 0;
 
-                $image_url .= " ";
-                $image = "";
-                for ($i = 0 ; $i < strlen($image_url); ++$i) {
-                    if ( substr($image, -4) == ".jpg" ) {
-                        $list_image[++$dem] = $image;
+                        $image_url .= " ";
                         $image = "";
+                        for ($i = 0 ; $i < strlen($image_url); ++$i) {
+                            if ( substr($image, -4) == ".jpg" ) {
+                                $list_image[++$dem] = $image;
+                                $image = "";
+                                }
+                            else {
+                                $image .= $image_url[$i];
+                            }
                         }
-                    else {
-                        $image .= $image_url[$i];
-                    }
-        }
                 ?>
                 <div class="col-lg-3 mb-3">
                     <div class="card">
