@@ -21,29 +21,27 @@
 	<script src="assets/vendor/jquery/jquery.min.js"></script>
 	<script src="https://hotrolaptrinh.github.io/js/tech/tech.js"></script>
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	
+
 </head>
 <body>
 	<main id="main">
-		
+
 	   <div id="head" class="container-fluid"> 
 		    <div class="row ">
 				<div class="col-lg-1">
 					<img width="110px" src="./images/logo1.png" alt="">
-					
 				</div>
 				<div class="col-lg-2 text-left my-auto pt-4">
 					<h1 class="text-center " >Trọ Tốt</h1>
 				</div>
-				
 				<div class="col-lg-8 mx-auto my-auto">
 					<h2 class="text-center text-right  pt-4">Chào mừng bạn đến với Trọ Tốt</h2>
 				</div>
 		    </div>
 	   </div>
 
-	
-		 
+
+
 	 <section id="hero" class="d-flex ">
 			<div class="container-fluid col-lg-6  ">
 				<div class="row bg-white rounded-bottom-5 rounded-top-5">
@@ -82,9 +80,6 @@
 									</div>
 								</div>
 
-
-
-
 								<div class="col-12">
 									<div class="input-group form-group">
 										<div class="input-group-prepend">
@@ -104,7 +99,7 @@
 								</div>
 								<div class="col-md-6 pr-0">
 									<button name="dangnhap" type="submit" class="btn btn-primary px-4">
-                                        <a href="index.php?<?php echo $row["user_id"]?>"></a>
+                                        <a href="index.php?user_id=<?php echo $row["user_id"]?>"></a>
                                         <i class="fa fa-sign-in"></i> Đăng nhập
                                     </button>
 								</div>
@@ -133,9 +128,9 @@
 	<script src="assets/vendor/aos/aos.js"></script>
 	<!-- Template Main JS File -->
 	<script src="https://hotrolaptrinh.github.io/js/tech/main.js"></script>
-	
 
 
-	
+
+
 </body>
 </html>

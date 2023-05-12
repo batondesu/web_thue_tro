@@ -14,6 +14,7 @@
     <!-- css -->
     <link rel="stylesheet" href="css/trangchu.css">
     <link rel="stylesheet" href="css/header.css">
+    
 
     <!-- js -->
     <script src="js/main.js"> </script>
@@ -30,8 +31,9 @@
 </head>
 <body>
     <section>
+        <!-- -->
         <script> addHeader(); </script>
-
+        <?php //include "header.php"?>
         
         <div class="banner">
 			<div class="owl-carousel owl-theme"></div>

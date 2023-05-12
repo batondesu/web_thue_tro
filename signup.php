@@ -21,7 +21,6 @@
 	<script src="assets/vendor/jquery/jquery.min.js"></script>
 	<script src="https://hotrolaptrinh.github.io/js/tech/tech.js"></script>
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	
 </head>
 <body>
 	<main id="main">
@@ -29,12 +28,10 @@
 		    <div class="row ">
 				<div class="col-lg-1">
 					<img width="110px" src="./images/logo1.png" alt="">
-					
 				</div>
 				<div class="col-lg-2 text-left my-auto pt-4">
 					<h1 class="text-center " >Trọ Tốt</h1>
 				</div>
-				
 				<div class="col-lg-8 mx-auto my-auto">
 					<h2 class="text-center text-right  pt-4">Chào mừng bạn đến với Trọ Tốt</h2>
 				</div>
@@ -42,7 +39,6 @@
 	   </div>
 		<section id="hero" class="d-flex">
 			<div class="container-fluid col-lg-6">
-				
 				<div class="row bg-white rounded-bottom-5 round-top-5">
 					<div class=" col-lg-2"></div>
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-8">
@@ -90,7 +86,6 @@
                                             id="password" 
                                             class="form-control" 
                                             placeholder="Nhập mật khẩu"/>
-                                        
 										<div class="input-group-append">
 											<span class="input-group-text xemMK"><i class="fa fa-eye"></i></span>
 										</div>

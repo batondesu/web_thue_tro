@@ -33,17 +33,19 @@ if (isset($_POST['password'])
 		// hashing the password
         //$pass = md5($pass);
 
-	    $sql = " SELECT * FROM users WHERE User_name = '$name' AND password = '$pass' ";
+	    $sql = " SELECT * FROM users WHERE account_name = '$name' AND password = '$pass' ";
 		$result = $conn->query($sql);
 
 		if (mysqli_num_rows($result) > 0) {
-			header("Location: index.php");
+			$row = $result->fetch_assoc();
+			$local = "index.php?user_id=";
+			$local .= $row["user_id"];
+			header("Location: $local");
 	        exit();
 		}else {
            	    header("Location: login.php?success=Tài khoản hoặc mật khẩu không đúng!!! ");
 		}
 	}
-	
 }else{
 	header("Location: signup.php");
 	exit();

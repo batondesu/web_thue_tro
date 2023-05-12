@@ -31,3 +31,4 @@ function addBanner(img, link) {
 	var banner = document.getElementsByClassName('owl-carousel')[0];
 	banner.innerHTML += newDiv;
 }
+

@@ -57,9 +57,9 @@ function addList() {
                 </div>
             </div>
         </div>
-
-        <br><br><br>
     </div>
+
+       
     `)
 }
 
@@ -109,6 +109,7 @@ function addFooter() {
     </footer>
  `)    
 }
+
 
 function addReport() {
     document.write(`

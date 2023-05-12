@@ -44,7 +44,7 @@ if (isset($_POST['password'])
 		// hashing the password
         //$pass = md5($pass);
 
-	    $sql = " SELECT * FROM users WHERE User_name = '$name' ";
+	    $sql = " SELECT * FROM users WHERE account_name = '$name' ";
 		$result = $conn->query($sql);
 
 		if (mysqli_num_rows($result) > 0) {
@@ -56,7 +56,7 @@ if (isset($_POST['password'])
             $row = $result3->fetch_assoc();
             $max_id = $row["max_id"];
 
-            $sql2 = "INSERT INTO users(user_id,User_name,password) VALUES($max_id+1,'$name','$pass')";
+            $sql2 = "INSERT INTO users(user_id,account_name,password) VALUES($max_id+1,'$name','$pass')";
             $result2 = $conn->query($sql2);
             if ($result2) {
            	    header("Location: signup.php?success=Tài khoản của bạn đã tạo thành công!!! ");
@@ -67,7 +67,6 @@ if (isset($_POST['password'])
             }
 		}
 	}
-	
 }else{
 	header("Location: signup.php");
 	exit();

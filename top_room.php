@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="./css/style.css" />
-    <link rel="stylesheet" href="css/header.css">
+    <!--<link rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/header.css">-->
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
     integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
@@ -45,7 +45,7 @@
     <section id="gallery">
     <div class="container">
         <div class="row">
-            <?php
+            <?php 
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_array()) { 
                         $link = "";
@@ -66,8 +66,8 @@
                                 $image .= $image_url[$i];
                             }
                         }
-                ?>
-                <div class="col-lg-3 mb-3">
+            ?>
+                        <div class="col-lg-3 mb-3">
                     <div class="card">
                         <img src="<?php echo $list_image[1] ?>" alt=""
                             class="card-img-top img-fluid d-block mx-auto">
@@ -92,8 +92,9 @@
                     </div>
                 </div>
             <?php
-            }
-        } ?>
+                    }
+                } 
+            ?>
         </div>
     </div>
     </section>
