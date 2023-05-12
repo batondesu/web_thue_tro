@@ -85,7 +85,7 @@
                                  <p class="recipe-desc">Giá: <?php echo $row["price"] ?> triệu VND
                                  </p>
                             </div>
-                            <a href="<?php echo $link ?>" name="<?php echo $row["room_id"] ?>" class="btn btn-outline-success btn-sm">Read More</a>
+                            <a href="chitietphong.php" class="btn btn-outline-success btn-sm">Read More</a>
                             <a href="" class="btn btn-outline-danger btn-sm"><i
                                     class="far fa-heart"></i></a>
                         </div>

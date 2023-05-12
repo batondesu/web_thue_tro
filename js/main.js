@@ -23,10 +23,10 @@ function addHeader() {
                 <div class="box-user">
                     <ul class="nav-user">
                         <li class="signup">
-                            <a class="dangky" href="signup.html"> ĐĂNG KÝ</a>
+                            <a class="dangky" href="signup.php"> ĐĂNG KÝ</a>
                         </li>
                         <li class="login">
-                            <a class="dangnhap" href="login.html"> ĐĂNG NHẬP</a>
+                            <a class="dangnhap" href="login.php"> ĐĂNG NHẬP</a>
                         </li>
                     </ul>
                 </div>
