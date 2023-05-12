@@ -33,6 +33,14 @@
     <!-- css -->
     <link rel="stylesheet" href="css/chitietphong.css">
     <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/trangchu.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/hostel.scss">
+    <link rel="stylesheet" href="css/global.scss">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/reset.scss">
+    <link rel="stylesheet" href="css/all.min.css">
+    
 
     <!-- js -->
     <script src="js/owl_image.js"> </script>
@@ -44,8 +52,6 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="owlcarousel/owl.carousel.min.js"></script>
 
-
-
 </head>
 
 <body>
@@ -55,12 +61,20 @@
     <script> addHeader(); </script>
 
     <?php 
+
+        //include "header.php";
+
         $room_id = $_GET['name'];
         $conn = new mysqli("localhost", "root", "", "room_rent");
+        function saveRoom($id_room) {
+            
+        }
+        //$room_id = 3;
         $sql = "SELECT r.*,i.image, u.* FROM room_info r
                 JOIN image_vid i ON i.room_id = r.room_id
                 JOIN rental_room rr ON rr.room_id = r.room_id
-                JOIN users u ON u.user_id = rr.user_id" ;
+                JOIN users u ON u.user_id = rr.user_id
+                WHERE r.room_id = $room_id" ;
         $result = $conn->query($sql);
         $row = $result->fetch_assoc();
 
@@ -82,7 +96,20 @@
         $jsonArray = json_encode($list_image);
         $jsonNumber = json_encode($dem);
         
+        //echo $jsonNumber."<br/>";
     ?>
+
+    <script>
+        window.onload = function() {
+            var jsonArray = <?php echo $jsonArray; ?>;
+            //var jsArray = JSON.parse(jsonArray);
+            var jsonNumber = <?php echo $jsonNumber; ?>;
+            //var numberArray = JSON.parse(jsonNumber);
+            joinImage(jsonNumber, jsonArray);
+            //console.log(jsonNumber);
+            runOwlCarousel();
+        }
+    </script>
 
     
         <div id="main-body" style="height: auto !important; min-height: 0px !important;">
@@ -90,16 +117,16 @@
                 <div class="container" style="height: auto !important;">
                     
                     <!------------------->
-                    <div class="image">
-			            <div class="owl-carousel owl-theme">
-                            <script>
-                                var jsonArray = <?php echo $jsonArray; ?>;
-                                var jsArray = JSON.parse(jsonArray);
-                                var jsonNumber = <?php echo $jsonNumber; ?>;
-                                var numberArray = JSON.parse(jsonNumber);
-                                joinImage(numberArray, jsArray);
-                            </script>
-                        </div>
+                    <div class="images">
+                        <style>
+                           .images{
+                                max-width: 1180px;
+                                max-height: 800px;
+                                width: auto;
+                                height: auto;
+                           }
+                        </style>
+			            <div class="owl-carousel owl-theme"></div>
                     </div>
                     
                     <!------------------->
@@ -144,7 +171,7 @@
                                                             <dl>
                                                                 <dt>Ở tối đa:</dt>
                                                                 <dd>
-                                                                    <?php echo $row["size"]/10 ?> người
+                                                                    <?php echo round($row["size"]/10) ?> người
                                                                 </dd>
                                                             </dl>
                                                             <dl>
@@ -157,14 +184,14 @@
                                                             <dl>
                                                                 <dt>Người đăng:</dt>
                                                                 <dd>
-                                                                    <span><?php echo $row["user_name"] ?></span>
+                                                                    <span><?php echo $row["User_name"] ?></span>
                                                                 </dd>
                                                             </dl>
                                                             <dl>
                                                                 <dt>Điện thoại:</dt>
                                                                 <dd class="phone">
-                                                                    <a href="tel:<?php echo $row["tele"] ?>">
-                                                                        <span><?php echo $row["tele"] ?></span>
+                                                                    <a href="tel:<?php echo $row["tel"] ?>">
+                                                                        <span><?php echo $row["tel"] ?></span>
                                                                     </a>
                                                                 </dd>
                                                             </dl>
@@ -223,7 +250,7 @@
                                         <dl>
                                             <dt><i class="fa-regular fa-circle-user"></i></dt>
                                             <dd>
-                                                <h3> <?php echo $row["user_name"] ?> </h3>
+                                                <h3> <?php echo $row["User_name"] ?> </h3>
                                             </dd>
                                         </dl>
                                         <dl>
@@ -235,40 +262,17 @@
                                         <dl>
                                             <dt><i class="fa-solid fa-phone"></i></dt>
                                             <dd>
-                                                <a href="tel:<?php echo $row["tele"] ?>"><?php echo $row["tele"] ?></a>
+                                                <a href="tel:<?php echo $row["tel"] ?>"><?php echo $row["tel"] ?></a>
                                             </dd>
                                         </dl>
                                         <div class="phone">
-                                            <a class="btn-global" href="tel:<?php echo $row["tele"] ?>"> Gọi ngay </a>
+                                            <a class="btn-global" href="tel:<?php echo $row["tel"] ?>"> Gọi ngay </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-----------------
-                    <div class="modal fade" id="box-review" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content box-info-review">
-                                <div class="modal-header">
-                                    <h5 class="modal-title">Viết đánh giá</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                    </button>
-                                </div>
-                                <div class="item form-review">
-                                    <div class="login">
-                                        <p>
-                                            Xin vui lòng
-                                            <a class="frm-login" href="https://id.ohi.vn/authorize/?response_type=code&amp;client_id=9aa0f7e44df1b62cee9afa9c6e802286&amp;redirect_uri=https://tromoi.com/authenticate&amp;state=https://tromoi.com/s/20451">đăng nhập</a>
-                                            để viết đánh giá.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->
-
                 </div> 
             </div>
 
