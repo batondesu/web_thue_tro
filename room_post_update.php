@@ -14,6 +14,7 @@ if (isset($_POST['title']) && isset($_POST['price']) && isset($_POST['size'])
 	   return $data;
 	}
 
+    $user_id = $_GET['user_id'];
     $title = validate($_POST['title']);
     $price = validate($_POST['price'])/1000000;
 	$size = validate($_POST['size']);
@@ -80,8 +81,13 @@ if (isset($_POST['title']) && isset($_POST['price']) && isset($_POST['size'])
                             VALUES($max_id+1,'$image','$vid')";
                 $result3 = $conn->query($sql3);
                 if ($result3) {
-           	    header("Location: room_post.php?success=Đăng bài thành công!!! ");
-	            exit();
+                    $sql4 = "INSERT INTO rental_room(`user_id`,`room_id`)
+                                VALUES($user_id,$max_id+1)";
+                    $result4 = $conn->query($sql4);
+                    if ($result4) {
+           	            header("Location: room_post.php?success=Đăng bài thành công!!! ");
+	                    exit();
+                    }
                 }
             }else {
 	           	header("Location: room_post.php?error=Xảy ra lỗi không xác định!!! &$user_data");

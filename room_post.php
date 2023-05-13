@@ -68,12 +68,12 @@
 <body>
 
     <script> addHeader(); </script>
-
+    <?php $user_id = 1;//$_GET['user_id']; ?>
 
     <div class="container">
         <div class="main-body">
         <h2 class="text-center">Đăng bài thuê phòng</h2>
-            <form class="card" action="room_post_update.php" method="post">
+            <form class="card" action="room_post_update.php?user_id=<?php echo $user_id?>" method="post">
                 
 
                 <?php if (isset($_GET['error'])) { ?>
