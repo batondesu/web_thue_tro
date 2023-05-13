@@ -42,7 +42,7 @@
 		    </div>
 	   </div>
 
-
+		<div id="thanh-ngang"></div>
 
 	 <section id="hero" class="d-flex ">
 			<div class="container-fluid col-lg-6  ">
