@@ -50,10 +50,13 @@
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_array()) { 
                         $link = "";
-                        $link .= "chitietphong.php?user_id=";
-                        $link .= $_GET['user_id'];
-                        $link .= "&name=";
+                        $link .= "chitietphong.php?name=";
+                        
                         $link .= $row["room_id"];
+                        if (isset($_GET['user_id'])) {
+                            $link .= "&user_id=";
+                            $link .= $_GET['user_id'];
+                        }
                         $image_url = $row["image"];
                         $list_image = [];
                         $dem = 0;
