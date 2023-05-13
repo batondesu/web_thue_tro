@@ -56,19 +56,17 @@
 
 <body>
 <section>
-    <!-- FOOTER -->
+    <!-- FOOTER <script> addHeader(); </script>-->
 
-    <script> addHeader(); </script>
+    
 
     <?php 
 
-        //include "header.php";
+        include "header.php";
 
         $room_id = $_GET['name'];
         $conn = new mysqli("localhost", "root", "", "room_rent");
-        function saveRoom($id_room) {
-            
-        }
+        
         //$room_id = 3;
         $sql = "SELECT r.*,i.image, u.* FROM room_info r
                 JOIN image_vid i ON i.room_id = r.room_id
@@ -140,7 +138,45 @@
                                                 <h3> <?php echo $row["title"] ?> </h3>
                                             </div>
                                             <div class="social-date">
-                                                <a href="javascript:void(0);" onclick="saveHostel(20642,23417)" class="tag saved heart-20642">Lưu tin</a>
+                                                
+                                                <?php 
+                                                    if (!isset($_GET['user_id'])) {
+                                                ?>
+                                                    <a href="login.php?name=chitietphong" class="tag saved heart">Lưu tin</a>
+                                                <?php 
+                                                    }
+                                                ?>
+
+                                                <script>
+                                                    function changeText() {
+                                                        var textElement = document.getElementById("myText");
+                                                        textElement.innerHTML = "Đã Lưu";
+                                                        var xhr = new XMLHttpRequest();
+                                                        var urlParams = new URLSearchParams(window.location.search);
+                                                        var Value1 = urlParams.get("user_id");
+                                                        var Value2 = urlParams.get("name");
+                                                        var link = "nhap.php?user_id=" +Value1 +"&name=" +Value2;
+                                                        xhr.open("POST", link, true);
+                                                        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                                                        xhr.onreadystatechange = function() {
+                                                            if (xhr.readyState === 4 && xhr.status === 200) {
+                                                                // Xử lý phản hồi từ máy chủ
+                                                                var response = xhr.responseText;
+                                                                alert(response);
+                                                            }
+                                                        }
+                                                        xhr.send();
+                                                    }
+                                                </script>
+
+                                                <?php 
+                                                    if (isset($_GET['user_id'])) {
+                                                ?>
+                                                    <a id="myText" class="tag saved heart" onclick="changeText()">Lưu tin</a>
+                                                <?php 
+                                                    }
+                                                ?>
+
                                             </div>
                                         </div>
                                         <div class="modulecontent">

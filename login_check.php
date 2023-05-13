@@ -2,8 +2,7 @@
 session_start(); 
 $conn = new mysqli("localhost", "root", "", "room_rent");
 
-if (isset($_POST['password'])
-    && isset($_POST['name']) ) {
+if (isset($_POST['password']) && isset($_POST['name']) ) {
 
 	function validate($data){
        $data = trim($data);
@@ -38,15 +37,34 @@ if (isset($_POST['password'])
 
 		if (mysqli_num_rows($result) > 0) {
 			$row = $result->fetch_assoc();
-			$local = "index.php?user_id=";
+			
+			if (!isset($_GET['name'])) {
+				$local = "index.php";
+			} else {
+				$local = $_GET['name'];
+				$local .= ".php";
+			}
+			
+			$local .= "?user_id=";
 			$local .= $row["user_id"];
+			
+			$user_id = $row['user_id'];
+			// Lưu thông tin đăng nhập vào session
+			$_SESSION['user_id'] = $user_id;
+
+			// Tạo một cookie chứa mã xác thực
+			
+			setcookie('user_id', $user_id, time() + 3600, '/');
+
+
 			header("Location: $local");
 	        exit();
 		}else {
            	    header("Location: login.php?success=Tài khoản hoặc mật khẩu không đúng!!! ");
 		}
 	}
-}else{
+}
+else {
 	header("Location: signup.php");
 	exit();
 }

@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Trọ Tốt</title>
     <link rel="shortcut icon" href="images/logo1.png" />
     
@@ -16,11 +14,9 @@
     <!-- css -->
     <link rel="stylesheet" href="css/trangchu.css">
     <link rel="stylesheet" href="css/header.css">
-
     <!-- js -->
     <script src="js/main.js"> </script>
     <script src="js/home.js"> </script>
-
     <!-- lib owl carousel -->
     <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
     <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
@@ -28,8 +24,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="owlcarousel/owl.carousel.min.js"></script>
-
-
 	<style>
     .body{
         margin-top:20px;
@@ -43,7 +37,6 @@
     .card {
         box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
     }
-
     .card {
         position: relative;
         display: flex;
@@ -55,34 +48,27 @@
         border: 0 solid rgba(0,0,0,.125);
         border-radius: .25rem;
     }
-
     .card-body {
         flex: 1 1 auto;
         min-height: 1px;
         padding: 1rem;
     }
-
-
     </style>
 </head>
 <body>
-
     <script> addHeader(); </script>
     <?php $user_id = 1;//$_GET['user_id']; ?>
-
     <div class="container">
         <div class="main-body">
         <h2 class="text-center">Đăng bài thuê phòng</h2>
             <form class="card" action="room_post_update.php?user_id=<?php echo $user_id?>" method="post">
                 
-
                 <?php if (isset($_GET['error'])) { ?>
      		        <h4><?php echo $_GET['error']; ?></h4>
      	        <?php } ?>
                 <?php if (isset($_GET['success'])) { ?>
                     <h4><?php echo $_GET['success']; ?></h4>
                 <?php } ?>
-
                 <div class="card-body">        
                   <div class="row">
                     <div class="col-sm-3">
@@ -96,7 +82,6 @@
                     </div>
                   </div>
                   <hr>
-
                   <div class="row">
                     <div class="col-sm-3">
                       <h6 class="mb-0">Giá*</h6>
@@ -109,7 +94,6 @@
                     </div>
                   </div>
                   <hr>
-
                   <div class="row">
                     <div class="col-sm-3">
                       <h6 class="mb-0">Diện tích*</h6>
@@ -122,7 +106,6 @@
                     </div>
                   </div>
                   <hr>
-
                   <div class="row">
                     <div class="col-sm-3">
                       <h6 class="mb-0">Tỉnh, Thành Phố*</h6>
@@ -135,7 +118,6 @@
                     </div>
                   </div>
                   <hr>
-
                   <div class="row">
                     <div class="col-sm-3">
                       <h6 class="mb-0">Quận, Huyện*</h6>
@@ -148,7 +130,6 @@
                     </div>
                   </div>
                   <hr>
-
                   
                   <div class="row">
                     <div class="col-sm-3">
@@ -188,7 +169,6 @@
                     </div>
                   </div>
                   <hr>
-
                   <div class="row">
                     <div class="col-sm-3">
                       <h6 class="mb-0">Kiểu phòng*</h6>
@@ -201,7 +181,6 @@
                     </div>
                   </div>
                   <hr>
-
                   <div class="row">
                     <div class="col-sm-3">
                       <h6 class="mb-0">Ảnh phòng trọ*</h6>
@@ -214,7 +193,6 @@
                     </div>
                   </div>
                   <hr>
-
                   <div class="row">
                     <div class="col-sm-3">
                       <h6 class="mb-0"> Video phòng trọ</h6>
@@ -227,17 +205,14 @@
                     </div>
                   </div>
                   <hr>
-
                     <div class="col-sm-12">
                     <button name="post" type="submit" class="btn btn-info ">
                          Post
                     </button>
                     </div>
-
             </div>
         </div>
     </div>
 </div>
-
 </body>
 </html>

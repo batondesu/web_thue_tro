@@ -53,9 +53,17 @@
     -webkit-touch-callout:none
 }
 
-.owl-carousel .owl-item img{
+.images .owl-carousel .owl-item img{
     display:block;
     max-width: 1180px;
+    width:100%; 
+    height: 500px;
+    /*height: auto;*/
+}
+
+.banner .owl-carousel .owl-item img{
+    display:block;
+    max-width: 100%;
     width:100%; 
     height: 500px;
     /*height: auto;*/

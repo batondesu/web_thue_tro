@@ -50,7 +50,9 @@
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_array()) { 
                         $link = "";
-                        $link .= "chitietphong.php?name=";
+                        $link .= "chitietphong.php?user_id=";
+                        $link .= $_GET['user_id'];
+                        $link .= "&name=";
                         $link .= $row["room_id"];
                         $image_url = $row["image"];
                         $list_image = [];
@@ -86,7 +88,7 @@
                                  <p class="recipe-desc">Giá: <?php echo $row["price"] ?> triệu VND
                                  </p>
                             </div>
-                            <a href="<?php echo $link ?>" class="btn btn-outline-success btn-sm">Read More</a>
+                            <a href="<?php echo $link ?>" name="<?php echo $row["room_id"] ?>" class="btn btn-outline-success btn-sm">Read More</a>
                             <a href="" class="btn btn-outline-danger btn-sm"><i
                                     class="far fa-heart"></i></a>
                         </div>

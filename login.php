@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -99,6 +101,7 @@
 								</div>
 								<div class="col-md-6 pr-0">
 									<button name="dangnhap" type="submit" class="btn btn-primary px-4">
+										<?php //$_SESSION['user_id'] = $row['user_id']; ?>
                                         <a href="index.php?user_id=<?php echo $row["user_id"]?>"></a>
                                         <i class="fa fa-sign-in"></i> Đăng nhập
                                     </button>
