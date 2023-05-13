@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: May 11, 2023 at 01:24 PM
--- Server version: 10.4.24-MariaDB-log
--- PHP Version: 7.4.29
+-- Host: 127.0.0.1:3306
+-- Generation Time: May 13, 2023 at 12:30 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -57,7 +57,8 @@ INSERT INTO `image_vid` (`room_id`, `image`, `vid`) VALUES
 (17, 'https://pt123.cdn.static123.com/images/thumbs/900x600/fit/2021/01/19/img-4316_1611068535.jpg\r\nhttps://pt123.cdn.static123.com/images/thumbs/900x600/fit/2021/01/19/img-4249_1611068531.jpg\r\nhttps://pt123.cdn.static123.com/images/thumbs/900x600/fit/2022/03/14/kl_1647219522.jpg', NULL),
 (18, 'https://pt123.cdn.static123.com/images/thumbs/900x600/fit/2020/09/10/img-20200612-084030_1599722674.jpg\r\nhttps://pt123.cdn.static123.com/images/thumbs/900x600/fit/2020/09/10/img-20200522-080045_1599722703.jpg\r\nhttps://pt123.cdn.static123.com/images/thumbs/900x600/fit/2020/09/22/img-20200922-145004_1600763109.jpg', NULL),
 (19, 'https://pt123.cdn.static123.com/images/thumbs/900x600/fit/2020/10/01/z2103932200421-0e8a4a5b053128b54093440156bc117d_1601542084.jpg\r\nhttps://pt123.cdn.static123.com/images/thumbs/900x600/fit/2020/10/01/z2103932200420-329870744539e3dbf2643c0bee29341d_1601542084.jpg\r\nhttps://pt123.cdn.static123.com/images/thumbs/900x600/fit/2020/10/01/z2103932200421-0e8a4a5b053128b54093440156bc117d_1601542084.jpg', NULL),
-(20, 'https://pt123.cdn.static123.com/images/thumbs/900x600/fit/2018/11/23/wp-20161225-11-09-36-pro_1542975423.jpg\r\nhttps://pt123.cdn.static123.com/images/thumbs/900x600/fit/2018/11/23/wp-20151110-10-52-08-pro-1_1542975371.jpg\r\nhttps://pt123.cdn.static123.com/images/thumbs/900x600/fit/2018/11/23/wp-20151110-15-00-53-pro_1542975380.jpg\r\nhttps://pt123.cdn.static123.com/images/thumbs/900x600/fit/2018/11/23/wp-20161225-11-08-21-pro_1542975393.jpg\r\nhttps://pt123.cdn.static123.com/images/thumbs/900x600/fit/2018/11/23/wp-20161225-11-07-52-pro_1542975407.jpg\r\nhttps://pt123.cdn.static123.com/images/thumbs/900x600/fit/2018/11/23/wp-20161225-11-09-36-pro_1542975423.jpg\r\nhttps://pt123.cdn.static123.com/images/thumbs/900x600/fit/2018/11/23/wp-20151110-10-52-08-pro-1_1542975371.jpg', NULL);
+(20, 'https://pt123.cdn.static123.com/images/thumbs/900x600/fit/2018/11/23/wp-20161225-11-09-36-pro_1542975423.jpg\r\nhttps://pt123.cdn.static123.com/images/thumbs/900x600/fit/2018/11/23/wp-20151110-10-52-08-pro-1_1542975371.jpg\r\nhttps://pt123.cdn.static123.com/images/thumbs/900x600/fit/2018/11/23/wp-20151110-15-00-53-pro_1542975380.jpg\r\nhttps://pt123.cdn.static123.com/images/thumbs/900x600/fit/2018/11/23/wp-20161225-11-08-21-pro_1542975393.jpg\r\nhttps://pt123.cdn.static123.com/images/thumbs/900x600/fit/2018/11/23/wp-20161225-11-07-52-pro_1542975407.jpg\r\nhttps://pt123.cdn.static123.com/images/thumbs/900x600/fit/2018/11/23/wp-20161225-11-09-36-pro_1542975423.jpg\r\nhttps://pt123.cdn.static123.com/images/thumbs/900x600/fit/2018/11/23/wp-20151110-10-52-08-pro-1_1542975371.jpg', NULL),
+(21, 'https://angcovat.vn/imagesdata/KN208117/thiet-ke-phong-tro-khep-kin-co-gac-lung.jpg,https://angcovat.vn/imagesdata/KN208117/thiet-ke-phong-tro-khep-kin.jpg', '');
 
 -- --------------------------------------------------------
 
@@ -94,7 +95,8 @@ INSERT INTO `rental_room` (`user_id`, `room_id`) VALUES
 (14, 17),
 (15, 18),
 (16, 19),
-(17, 20);
+(17, 20),
+(1, 21);
 
 -- --------------------------------------------------------
 
@@ -124,34 +126,37 @@ CREATE TABLE `room_info` (
   `ward` varchar(20) NOT NULL,
   `note` text DEFAULT NULL,
   `type` varchar(20) NOT NULL,
-  `last_update` date NOT NULL DEFAULT current_timestamp()
+  `last_update` date NOT NULL DEFAULT current_timestamp(),
+  `address` varchar(200) DEFAULT NULL,
+  `status2` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `room_info`
 --
 
-INSERT INTO `room_info` (`room_id`, `title`, `status`, `price`, `size`, `city`, `district`, `ward`, `note`, `type`, `last_update`) VALUES
-(1, '', '', 1.2, 30, 'TP. Hồ Chí Minh', 'Quận Thủ Đức', '', NULL, 'Phòng trọ', '2023-05-11'),
-(2, '', '', 1.4, 25, 'TP. Hồ Chí Minh', 'Quận Tân Bình', '', NULL, 'Phòng trọ', '2023-05-11'),
-(3, '', '', 0.9, 28, 'TP. Hồ Chí Minh', 'Quận Gò Vấp', '', NULL, 'Phòng trọ', '2023-05-11'),
-(4, '', '', 2, 20, 'TP. Hồ Chí Minh', 'Quận Tân Bình', '', NULL, 'Phòng trọ', '2023-05-11'),
-(5, '', '', 1.7, 20, 'TP. Hồ Chí Minh', 'Quận Tân Phú', '', NULL, 'Phòng trọ', '2023-05-11'),
-(6, '', '', 4.5, 22, 'TP. Hồ Chí Minh', 'Quận 10', '', NULL, 'Phòng trọ', '2023-05-11'),
-(7, '', '', 2.9, 25, 'TP. Hồ Chí Minh', 'Quận Tân Bình', '', NULL, 'Phòng trọ', '2023-05-11'),
-(8, '', '', 1.5, 12, 'TP. Hồ Chí Minh', 'Quận Bình Tân', '', NULL, 'Phòng trọ', '2023-05-11'),
-(9, '', '', 5, 30, 'TP. Hồ Chí Minh', 'Quận Bình Thạnh', '', NULL, 'Phòng trọ', '2023-05-11'),
-(10, '', '', 1.4, 30, 'TP. Hồ Chí Minh', 'Quận Bình Thạnh', '', NULL, 'Phòng trọ', '2023-05-11'),
-(11, '', '', 3.5, 24, 'TP. Hồ Chí Minh', 'Quận 10', '', NULL, 'Phòng trọ', '2023-05-11'),
-(12, '', '', 2.3, 20, 'TP. Hồ Chí Minh', 'Quận 7', '', NULL, 'Phòng trọ', '2023-05-11'),
-(13, '', '', 0.7, 20, 'TP. Hồ Chí Minh', 'Quận 7', '', NULL, 'Phòng trọ', '2023-05-11'),
-(14, '', '', 3.8, 20, 'TP. Hồ Chí Minh', 'Quận 6', '', NULL, 'Phòng trọ', '2023-05-11'),
-(15, '', '', 3, 25, 'TP. Hồ Chí Minh', 'Quận 6', '', NULL, 'Phòng trọ', '2023-05-11'),
-(16, '', '', 4.5, 20, 'TP. Hồ Chí Minh', 'Quận Bình Thạnh', '', NULL, 'Phòng trọ', '2023-05-11'),
-(17, '', '', 3.2, 16, 'TP. Hồ Chí Minh', 'Quận Bình Thạnh', '', NULL, 'Phòng trọ', '2023-05-11'),
-(18, '', '', 2, 16, 'TP. Hồ Chí Minh', 'Quận 7', '', NULL, 'Phòng trọ', '2023-05-11'),
-(19, '', '', 5, 22, 'TP. Hồ Chí Minh', 'Quận 10', '', NULL, 'Phòng trọ', '2023-05-11'),
-(20, '', '', 2.5, 27, 'TP. Hồ Chí Minh', 'Huyện Nhà Bè', '', NULL, 'Phòng trọ', '2023-05-11');
+INSERT INTO `room_info` (`room_id`, `title`, `status`, `price`, `size`, `city`, `district`, `ward`, `note`, `type`, `last_update`, `address`, `status2`) VALUES
+(1, 'Cực phẩm KTX, Phòng trọ, Sang, Xịn, Mịn Giá siêu rẻ tại Thủ Đức ', '', 1.2, 30, 'TP. Hồ Chí Minh', 'Quận Thủ Đức', 'Phường Linh Đông', NULL, 'Phòng trọ', '2023-05-11', '101 Đường số 8', 'yes'),
+(2, 'PHÒNG SLEEPBOX RIÊNG TƯ ĐẦY ĐỦ TIỆN NGHI RIÊNG TƯ AN NINH 24/24 ', '', 1.4, 25, 'TP. Hồ Chí Minh', 'Quận Tân Bình', 'Phường 2', NULL, 'Phòng trọ', '2023-05-11', '50 Đường Phạm Cự Lượng', 'yes'),
+(3, 'PHÒNG KTX ĐẠI HỌC CÔNG NGHIỆP (200M) THANG MÁY, MÁY LẠNH, MÁY GIẶT, WIFI, BẾP ', '', 0.9, 28, 'TP. Hồ Chí Minh', 'Quận Gò Vấp', 'Phường 5', NULL, 'Phòng trọ', '2023-05-11', '60/18A Đường Huỳnh Khương An', 'yes'),
+(4, 'Cho thuê phòng trọ 128/46 Thiên Phước, P.9, Q.Tân Bình (gần vòng xoay Lê Đại Hành)', '', 2, 20, 'TP. Hồ Chí Minh', 'Quận Tân Bình', 'Phường 9', NULL, 'Phòng trọ', '2023-05-11', '128/46 Đường Thiên Phước', 'yes'),
+(5, 'PHÒNG TRỌ MỚI SỬA 7/2022 48/13 LƯƠNG THẾ VINH, Phường TÂN THỚI HÒA, TÂN PHÚ (GẦN ĐẦM SEN)', '', 1.7, 20, 'TP. Hồ Chí Minh', 'Quận Tân Phú', 'Phường Tân Thới Hòa', NULL, 'Phòng trọ', '2023-05-11', '48/13 Đường Lương Thế Vinh', 'yes'),
+(6, 'Cho thuê phòng cao cấp, đầy đủ tiện nghi, như căn hộ, ngay trung tâm Quận 10 ', '', 4.5, 22, 'TP. Hồ Chí Minh', 'Quận 10', 'Phường 14', NULL, 'Phòng trọ', '2023-05-11', '128 Đường Thành Thái', 'yes'),
+(7, 'Chỉ 3.9 Triệu, Phòng Rộng Rãi, Đầy Đủ Nội Thất Cơ Bản, Giảm ngay 10% tiền nhà tháng đầu! ', '', 2.9, 25, 'TP. Hồ Chí Minh', 'Quận Tân Bình', 'Phường 4', NULL, 'Phòng trọ', '2023-05-11', '74 Đường Xuân Diệu', 'yes'),
+(8, 'CHO THUÊ PHÒNG TRỌ GIÁ SIÊU RẺ GẦN KHU CÔNG NGHIỆP POUYUEN ', '', 1.5, 12, 'TP. Hồ Chí Minh', 'Quận Bình Tân', 'Phường Tân Tạo A', NULL, 'Phòng trọ', '2023-05-11', '1665 Đường Tỉnh Lộ 10', 'yes'),
+(9, 'Căn hộ mới xây 30m2 full nội thất - đường D2 Bình Thạnh ', '', 5, 30, 'TP. Hồ Chí Minh', 'Quận Bình Thạnh', 'Phường 25', NULL, 'Phòng trọ', '2023-05-11', '213/8 Đường Nguyễn Gia Trí (D2)', 'yes'),
+(10, 'PHÒNG SLEEP BOX FULL TIỆN NGHI DÀNH CHO CÁC BẠN SINH VIÊN BÌNH THẠNH, HUTECH, NGOẠI THƯƠNG, GTVT ', '', 1.4, 30, 'TP. Hồ Chí Minh', 'Quận Bình Thạnh', 'Phường 25', NULL, 'Phòng trọ', '2023-05-11', '69/38/11 Đường D2', 'yes'),
+(11, 'Phòng trọ mới, sạch đẹp, ngay trung tâm, giá rẻ, chính chủ. ', '', 3.5, 24, 'TP. Hồ Chí Minh', 'Quận 10', 'Phường 11', NULL, 'Phòng trọ', '2023-05-11', '358/4 Đường Điện Biên Phủ', 'yes'),
+(12, 'Phòng máy lạnh, giường, máy giặt đầy đủ tiện nghi ', '', 2.3, 20, 'TP. Hồ Chí Minh', 'Quận 7', 'Phường Bình Thuận', NULL, 'Phòng trọ', '2023-05-11', '350 Đường Huỳnh Tấn Phát', 'yes'),
+(13, 'Ở ghép trọn gói 700k gần Lotte Mart ', '', 0.7, 20, 'TP. Hồ Chí Minh', 'Quận 7', 'Phường Tân Quy', NULL, 'Phòng trọ', '2023-05-11', '34 Phố số 36', 'yes'),
+(14, 'Phòng trọ cho thuê ngắn hạn hoặc dài hạn đầy đủ nội thất, tiện nghi vào ở ngay ', '', 3.8, 20, 'TP. Hồ Chí Minh', 'Quận 6', 'Phường 12', NULL, 'Phòng trọ', '2023-05-11', '336/10 Nguyễn Văn Luông', 'yes'),
+(15, 'PHÒNG CHO THUÊ NGAY LOTTE Q.7 - CHỈ TỪ 3TR - BAO GIÁ TỐT - Alo 0988.373.731 ', '', 3, 25, 'TP. Hồ Chí Minh', 'Quận 6', 'Phường Tân Khiểng', NULL, 'Phòng trọ', '2023-05-11', '80 Đường số 3', 'yes'),
+(16, 'Cho thuê phòng 20m2 nhà mới xây tại 32/40/38 Đường Bùi Đình Túy, Phường 12, Quận Bình Thạnh ', '', 4.5, 20, 'TP. Hồ Chí Minh', 'Quận Bình Thạnh', 'Phường 12', NULL, 'Phòng trọ', '2023-05-11', '32/40/38 Đường Bùi Đình Túy', 'yes'),
+(17, 'Phòng sạch, đẹp 16m2, có sẵn nội thất chỉ từ 3,2 Triệu đến 3,5 Triệu/tháng tại Đinh Bộ Lĩnh, Phường 26, Bình Thạnh ', '', 3.2, 16, 'TP. Hồ Chí Minh', 'Quận Bình Thạnh', 'Phường 26', NULL, 'Phòng trọ', '2023-05-11', 'Đường Đinh Bộ Lĩnh', 'yes'),
+(18, 'Phòng 2 triệu tại q7, phòng mới, yên tĩnh, phòng riêng biệt, giờ giấc tự do ', '', 2, 16, 'TP. Hồ Chí Minh', 'Quận 7', 'Phường Phú Mỹ', NULL, 'Phòng trọ', '2023-05-11', '', 'yes'),
+(19, 'Cho thuê phòng trọ đầy đủ nội thất, đường 3/2, khu Kỳ Hòa, Quận 10 ', '', 5, 22, 'TP. Hồ Chí Minh', 'Quận 10', 'Phường 11', NULL, 'Phòng trọ', '2023-05-11', '181/36 Đường số 3/2', 'yes'),
+(20, 'Cho thuê nhà trọ mặt tiền 8m, giá rẻ, sạch, đẹp, tự do..chỉ còn 1 căn duy nhất ', '', 2.5, 27, 'TP. Hồ Chí Minh', 'Huyện Nhà Bè', 'Xã Nhơn Đức', NULL, 'Phòng trọ', '2023-05-11', 'P02- 1874/11/6 Đường Lê Văn Lương', 'yes'),
+(21, 'Phòng trọ giá siêu rẻ', 'Còn phòng', 1, 100, 'Hà Nội', 'Nam Từ Liêm', 'Mễ Trì', '', 'Nhà nguyên căn', '2023-05-13', '32 Đỗ Đức Dục', 'no');
 
 -- --------------------------------------------------------
 
@@ -177,31 +182,34 @@ CREATE TABLE `users` (
   `password` text NOT NULL,
   `email` varchar(50) NOT NULL,
   `tel` text NOT NULL,
-  `address` text NOT NULL
+  `address` text NOT NULL,
+  `permission` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `User_name`, `account_name`, `password`, `email`, `tel`, `address`) VALUES
-(1, 'MR Bình', 'Mrbinh', '0936456678', '', '0936456678', ''),
-(2, 'Văn Chung', 'VChung', '0896119779', '', '0896119779', ''),
-(3, 'Nguyễn Văn Kiên', 'kenshin8522', '12345678', '', '0906878018', ''),
-(4, 'Nguyễn Phạm Đức Cường', 'CuongNguyen', '0938864405', '', '0938864405', ''),
-(5, 'Đỗ Văn Khang', 'khang275', '123456', '', '0938297275', ''),
-(6, 'VINH NGUYỄN', 'VinhNg', '0938662616', '', '0938662616', ''),
-(7, 'huỳnh thị mỹ trâm', 'TramH', '0916668326', '', '0916668326', ''),
-(8, 'Bích Đào', 'Bichdao', '0935101516', '', '0935101516', ''),
-(9, 'Nguyen Thi Bich Thuy', 'BichThuyNT', '0983344682', '', '0983344682', ''),
-(10, 'Hoàng Phúc', 'HoangP', '0931313570', '', '0931313570', ''),
-(11, 'Anh Cảnh', 'anhcanh', '0913635257', '', '0913635257', ''),
-(12, 'Nguyễn Văn Tú', 'ThuecanhominiQ7', '0988373731', '', '0988373731', ''),
-(13, 'Loan', 'loan1919', '0978111919', '', '0978111919', ''),
-(14, 'Chị Đoan', 'Chidoan', '0903934756', '', '0903934756', ''),
-(15, 'Cao thi cuc', 'cuccao', '0909634270', '', '0909634270', ''),
-(16, 'Phạm Đình Văn', 'van528', '0919990528', '', '0919990528', ''),
-(17, 'Nguyễn Thị Ngọc Thúy', 'thuyngocnt78', '1234567', 'thuyngocnt78@gmail.com', '0907667248', '');
+INSERT INTO `users` (`user_id`, `User_name`, `account_name`, `password`, `email`, `tel`, `address`, `permission`) VALUES
+(1, 'MR Bình', 'Mrbinh', '0936456678', 'abc@gmail.com', '0936456678', '144 Xuân Thủy, Cầu Giấy, Hà Nội', 'user'),
+(2, 'Văn Chung', 'VChung', '0896119779', '', '0896119779', '', 'user'),
+(3, 'Nguyễn Văn Kiên', 'kenshin8522', '12345678', 'hahdasd', '0906878018', 'kjahdjhaskjda', 'user'),
+(4, 'Nguyễn Phạm Đức Cường', 'CuongNguyen', '0938864405', '', '0938864405', '', 'user'),
+(5, 'Đỗ Văn Khang', 'khang275', '123456', '', '0938297275', '', 'user'),
+(6, 'VINH NGUYỄN', 'VinhNg', '0938662616', '', '0938662616', '', 'user'),
+(7, 'huỳnh thị mỹ trâm', 'TramH', '0916668326', '', '0916668326', '', 'user'),
+(8, 'Bích Đào', 'Bichdao', '0935101516', '', '0935101516', '', 'user'),
+(9, 'Nguyen Thi Bich Thuy', 'BichThuyNT', '0983344682', '', '0983344682', '', 'user'),
+(10, 'Hoàng Phúc', 'HoangP', '0931313570', '', '0931313570', '', 'user'),
+(11, 'Anh Cảnh', 'anhcanh', '0913635257', '', '0913635257', '', 'user'),
+(12, 'Nguyễn Văn Tú', 'ThuecanhominiQ7', '0988373731', '', '0988373731', '', 'user'),
+(13, 'Loan', 'loan1919', '0978111919', '', '0978111919', '', 'user'),
+(14, 'Chị Đoan', 'Chidoan', '0903934756', '', '0903934756', '', 'user'),
+(15, 'Cao thi cuc', 'cuccao', '0909634270', '', '0909634270', '', 'user'),
+(16, 'Phạm Đình Văn', 'van528', '0919990528', '', '0919990528', '', 'user'),
+(17, 'Nguyễn Thị Ngọc Thúy', 'thuyngocnt78', '1234567', 'thuyngocnt78@gmail.com', '0907667248', '', 'user'),
+(18, 'mon123', '', '123456', '', '', '', 'admin'),
+(19, 'Nguyễn Viết Tú', '', 'abcxyz', '', '', '', 'user');
 
 --
 -- Indexes for dumped tables
