@@ -165,6 +165,19 @@
 
                   <div class="row">
                     <div class="col-sm-3">
+                      <h6 class="mb-0">Địa chỉ*</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                    <input type="text" 
+                           name="address" 
+                           class="form-control"
+                           placeholder="Nhập địa chỉ(tên đường, số nhà,...)">
+                    </div>
+                  </div>
+                  <hr>
+
+                  <div class="row">
+                    <div class="col-sm-3">
                       <h6 class="mb-0">Ghi chú</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">

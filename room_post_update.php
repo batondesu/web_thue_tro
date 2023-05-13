@@ -5,7 +5,7 @@ $conn = new mysqli("localhost", "root", "", "room_rent");
 if (isset($_POST['title']) && isset($_POST['price']) && isset($_POST['size']) 
     && isset($_POST['city']) && isset($_POST['district']) && isset($_POST['ward'])
     && isset($_POST['note']) && isset($_POST['type']) && isset($_POST['image'])
-    && isset($_POST['vid'])) {
+    && isset($_POST['vid']) && isset($_POST['address'])) {
 
 	function validate($data){
        $data = trim($data);
@@ -21,6 +21,7 @@ if (isset($_POST['title']) && isset($_POST['price']) && isset($_POST['size'])
     $city = validate($_POST['city']);
     $district = validate($_POST['district']);
     $ward = validate($_POST['ward']);
+    $address = validate($_POST['address']);
     $note = validate($_POST['note']);
     $type = validate($_POST['type']);
     $image = validate($_POST['image']);
@@ -52,6 +53,10 @@ if (isset($_POST['title']) && isset($_POST['price']) && isset($_POST['size'])
         header("Location: room_post.php?error=Bạn chưa nhập xã, phường!&user_id=$user_id");
 	    exit();
 	}
+    else if(empty($address)){
+        header("Location: room_post.php?error=Bạn chưa nhập địa chỉ!&user_id=$user_id");
+	    exit();
+	}
     else if(empty($type)){
         header("Location: room_post.php?error=Bạn chưa nhập kiểu phòng!&user_id=$user_id");
 	    exit();
@@ -72,9 +77,9 @@ if (isset($_POST['title']) && isset($_POST['price']) && isset($_POST['size'])
             $date = date("Y-m-d");
 
             $sql2 = "INSERT INTO room_info(`room_id`,`title`,`status`,`price`,`size`
-                                            ,`city`,`district`,`ward`,`note`,`type`,`last_update`)
+                                            ,`city`,`district`,`ward`,`note`,`type`,`last_update`,`address`,`status2`)
                         VALUES($max_id+1,'$title','Còn phòng','$price','$size'
-                                            ,'$city','$district','$ward','$note','$type','$date')";
+                                            ,'$city','$district','$ward','$note','$type','$date','$address','no')";
             $result2 = $conn->query($sql2);
             if ($result2) {
                 $sql3 = "INSERT INTO image_vid(`room_id`,`image`,`vid`)

@@ -20,12 +20,12 @@
 
         .card {
             transition: transform 0.3s ease;
-            height: 450px;
+            height: 550px;
         }
 
         .card-text-truncate {
              display: -webkit-box;
-            -webkit-line-clamp: 5;
+            -webkit-line-clamp: 7;
             -webkit-box-orient: vertical;
             overflow-y: auto;
         }
@@ -37,6 +37,7 @@
         $sql = "SELECT r.*,i.image, (r.price / r.size) AS abc FROM `room_info` r
             LEFT JOIN image_vid i
             ON i.room_id=r.room_id
+            WHERE r.status2 = 'yes'
             ORDER BY abc
             LIMIT 8" ;
         $result = $conn->query($sql);
@@ -72,20 +73,20 @@
                         <img src="<?php echo $list_image[1] ?>" alt=""
                             class="card-img-top img-fluid d-block mx-auto">
                         <div class="card-body">
-                            <h5 class="card-title">
-                                <?php echo $row["type"] ?>
-                            </h5>
+                            <P style="color:#828282" class="recipe-desc"> <?php echo $row["city"] ?>
+                            </P>
+                            <h6 style="color:blue" class="card-title">
+                                <?php echo $row["title"] ?>
+                            </h6>
                             <div class="card-text card-text-truncate mb-3">
-                                <p class="recipe-desc"><?php echo $row["city"] ?>
-                                </p>
-                                <p class="recipe-desc">Địa chỉ: <?php echo $row["district"] ?>, <?php echo $row["ward"] ?>
+                                <p style="color:#828282" class="recipe-desc">Địa chỉ: <?php echo $row["address"]?>, <?php echo $row["district"] ?>, <?php echo $row["ward"] ?>
                                 </p>
                                 <p class="recipe-desc">Diện tích: <?php echo $row["size"] ?>m²
                                  </p>
                                  <p class="recipe-desc">Giá: <?php echo $row["price"] ?> triệu VND
                                  </p>
                             </div>
-                            <a href="chitietphong.php" class="btn btn-outline-success btn-sm">Read More</a>
+                            <a href="<?php echo $link ?>" class="btn btn-outline-success btn-sm">Read More</a>
                             <a href="" class="btn btn-outline-danger btn-sm"><i
                                     class="far fa-heart"></i></a>
                         </div>
