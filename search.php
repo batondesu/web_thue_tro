@@ -527,6 +527,10 @@
             $right = $left + 9;
             $curPage = ceil($count/10);
             //$count--;
+            
+            $next_link = $_SERVER['QUERY_STRING'];
+            if (isset($_GET['page'])) $next_link = substr($next_link, 7);
+            //echo $next_link;
           ?>
 
           <div class="module-header">
@@ -615,7 +619,7 @@
                                           </li><?php
                                       } else {
                                           ?><li> 
-                                              <a href="list.php?page=<?php $pre=$page-1; echo $pre ?><?php echo $link_url ?>">
+                                              <a href="search.php?page=<?php $pre=$page-1; echo $pre.'&'.$next_link ?>">
                                               «
                                               </a>
                                           </li><?php
@@ -623,7 +627,7 @@
 
                                       for ($i = max($page-2,1) ; $i<$page; ++$i) { 
                                           ?><li> 
-                                              <a href="list.php?page=<?php echo $i?><?php echo $link_url ?>">
+                                              <a href="search.php?page=<?php echo $i.'&'.$next_link ?>">
                                                   <?php echo $i ?>
                                               </a>
                                           </li><?php
@@ -635,7 +639,7 @@
 
                                       for ($i = $page+1 ; $i<=$curPage; ++$i) { 
                                           ?><li> 
-                                              <a href="list.php?page=<?php echo $i?><?php echo $link_url ?>">
+                                              <a href="search.php?page=<?php echo $i.'&'.$next_link ?>">
                                                   <?php echo $i ?>
                                               </a>
                                           </li><?php
@@ -646,7 +650,7 @@
                                           </li><?php
                                       } else {
                                           ?><li> 
-                                              <a href="list.php?page=<?php $pos=$page+1; echo $pos?><?php echo $link_url ?>">
+                                              <a href="search.php?page=<?php $pos=$page+1; echo $pos.'&'.$next_link ?>">
                                               »
                                               </a>
                                           </li><?php
