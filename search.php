@@ -439,7 +439,7 @@
               else { $right1 = 100;}
             }
             
-            //echo $city.' '.$district.' '.$type.' '.$price.'<br/>';
+            
 
             $conn = new mysqli("localhost", "root", "", "room_rent");
             $sql = "SELECT * FROM room_info" ;
@@ -485,8 +485,15 @@
               if ( $city != "" && $district == "" && $type != "all" && $price != "all"){ 
                 if ($type == $row['type'] && $price <= $row['price'] && $row['price'] <= $right1) 
                 {$list_id[++$count] = $row['room_id'];}}
-            }
 
+              if ( $city != "" && $district != "" && $type == "all" && $price == "all"){
+                if ( $city == $row['city'] && $district == $row['district']) {$list_id[++$count] = $row['room_id'];}}
+
+              if ( $city == "" && $district == "" && $type != "all" && $price != "all"){
+                if ( $type == $row['type'] && $price <= $row['price'] && $row['price'] <= $right1 ) {$list_id[++$count] = $row['room_id'];}}
+            }
+            
+            //echo $count.' '.$city.' '.$district.' '.$type.' '.$price.'<br/>';
 
             if (isset($_GET['user_id'])) {
               $link_url = "&user_id=";
