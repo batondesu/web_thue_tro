@@ -501,7 +501,15 @@
                 if ( $type == $row['type'] && $price <= $row['price'] && $row['price'] <= $right1 ) {$list_id[++$count] = $row['room_id'];}}
             }
             
-            //echo $count.' '.$city.' '.$district.' '.$type.' '.$price.'<br/>';
+            $list_id = array_unique($list_id);
+            //print_r($list_id);
+            $list_id = array_values($list_id);
+            $count = count($list_id);
+           
+            for ($ii = 0 ; $ii < $count; ++$ii) {
+              //echo $list_id[$ii].' ';
+            }
+              // echo $count.' '.$city.' '.$district.' '.$type.' '.$price.'<br/>';
             
             $load_link = "";
             if (isset($_GET['user_id'])) {
@@ -515,9 +523,10 @@
             } else {
                 $page = 1;
             }
-            $left = ($page - 1) * 10 + 1;
+            $left = ($page - 1) * 10 ;
             $right = $left + 9;
             $curPage = ceil($count/10);
+            //$count--;
           ?>
 
           <div class="module-header">
@@ -530,7 +539,7 @@
             $link_url .= $_GET['user_id'];
             //echo $link_url;
           }
-          for ($u = $left; $u <= min($right,$count) ; ++$u) {
+          for ($u = $left; $u <= min($right,$count - 1) ; ++$u) {
                   
                   $room_id = $list_id[$u];
                   $sql = "SELECT *, i.image FROM room_info r
