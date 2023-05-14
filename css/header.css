@@ -3,7 +3,7 @@
     position: sticky;
     position: -webkit-sticky; /* Safari */
     z-index: 1009;
-    background-color: white;
+    background-color: #fffaf4;
     top: 0;
     width: 100%;
     height: 80px;
@@ -262,7 +262,11 @@
                               }
 
 
-                  
-   
-
- 
+               #header{
+                  position: sticky;
+                  top:0;
+                  z-index: 999999999999999999999999999;
+               }
+               #can-giua a{
+                  vertical-align: none;
+               }

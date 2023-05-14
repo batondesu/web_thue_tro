@@ -58,13 +58,13 @@
         } 
     ?>
 
-    <section>
+    <section id="header">
     <div class="header">
         <div class="container">
             <div class="container-inner full">
                 <div class="logo">
                     <a href="index.php?<?php echo $link ?>">
-                        <img src="images/logo.jpg" alt="Trang chủ" title="Trang chủ">
+                        <img src="images/logo.png" alt="Trang chủ" title="Trang chủ">
                         <i> Trọ Tốt </i>
                     </a>
                 </div> 

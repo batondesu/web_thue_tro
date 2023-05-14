@@ -38,6 +38,9 @@
 				</div>
 		    </div>
 	   </div>
+
+		<div id="thanh-ngang"></div>
+
 		<section id="hero" class="d-flex">
 			<div class="container-fluid col-lg-6">
 				<div class="row bg-white rounded-bottom-5 round-top-5">
