@@ -24,6 +24,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="owlcarousel/owl.carousel.min.js"></script>
+    
 	<style>
     .body{
         margin-top:20px;
@@ -53,11 +54,19 @@
         min-height: 1px;
         padding: 1rem;
     }
+    .select {
+      border-color: #fff;
+    }
     </style>
 </head>
 <body>
-    <script> addHeader(); </script>
-    <?php $user_id = 1;//$_GET['user_id']; ?>
+    
+    <?php 
+      include 'header.php';
+      if(!isset($_GET['user_id'])) { ?>
+      <h2 class="text-center">Bạn chưa đăng nhập</h2>
+    <?php } else { ?>
+    <?php $user_id = $_GET['user_id']; ?>
     <div class="container">
         <div class="main-body">
         <h2 class="text-center">Đăng bài thuê phòng</h2>
@@ -111,10 +120,9 @@
                       <h6 class="mb-0">Tỉnh, Thành Phố*</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                    <input type="text" 
-                           name="city" 
-                           class="form-control"
-                           placeholder="Nhập tỉnh, thành phố">
+                    <select name="calc_shipping_provinces" style="height: 33px; width: 840px; color:#828282; -color:#828282">
+                      <option value="">Chọn thành phố</option>
+                    </select>
                     </div>
                   </div>
                   <hr>
@@ -123,10 +131,9 @@
                       <h6 class="mb-0">Quận, Huyện*</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                    <input type="text" 
-                           name="district" 
-                           class="form-control"
-                           placeholder="Nhập quận, huyện">
+                    <select name="calc_shipping_district" style="height: 33px; width: 840px; color:#828282">
+                      <option value="Chọn quận,huyện">Chọn quận huyện</option>
+                    </select>
                     </div>
                   </div>
                   <hr>
@@ -174,10 +181,11 @@
                       <h6 class="mb-0">Kiểu phòng*</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                    <input type="text" 
-                           name="type" 
-                           class="form-control"
-                           placeholder="Nhập kiểu phòng (phòng trọ, phòng ghép, nhà nguyên căn...)">
+                    <select name="type" style="height: 33px; width: 840px; color:#828282">
+                      <option value="Phòng trọ">Phòng trọ</option>
+                      <option value="Phòng ghép">Trọ ghép</option>
+                      <option value="Nhà nguyên căn">Nhà nguyên căn</option>
+                    </select>
                     </div>
                   </div>
                   <hr>
@@ -211,8 +219,149 @@
                     </button>
                     </div>
             </div>
+          </div>
         </div>
     </div>
-</div>
+    <?php } ?>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://web8802.com/wp-content/themes/hienads/assets/js/quanhuyen.js"></script>
+    <script>
+    if (address_2 = localStorage.getItem('address_2_saved')) {
+    
+      $('select[name="calc_shipping_district"] option').each(function() {
+    
+        if ($(this).text() == address_2) {
+    
+          $(this).attr('selected', '')
+    
+        }
+    
+      })
+    
+      $('input.billing_address_2').attr('value', address_2)
+    
+    }
+    
+    if (district = localStorage.getItem('district')) {
+    
+      $('select[name="calc_shipping_district"]').html(district)
+    
+      $('select[name="calc_shipping_district"]').on('change', function() {
+    
+        var target = $(this).children('option:selected')
+    
+        target.attr('selected', '')
+    
+        $('select[name="calc_shipping_district"] option').not(target).removeAttr('selected')
+    
+        address_2 = target.text()
+    
+        $('input.billing_address_2').attr('value', address_2)
+    
+        district = $('select[name="calc_shipping_district"]').html()
+    
+        localStorage.setItem('district', district)
+    
+        localStorage.setItem('address_2_saved', address_2)
+    
+      })
+    
+    }
+    
+    $('select[name="calc_shipping_provinces"]').each(function() {
+    
+      var $this = $(this),
+    
+        stc = ''
+    
+      c.forEach(function(i, e) {
+    
+        e += +1
+    
+        stc += '<option value=' + e + '>' + i + '</option>'
+    
+        $this.html('<option value="">Tỉnh / Thành phố</option>' + stc)
+    
+        if (address_1 = localStorage.getItem('address_1_saved')) {
+    
+          $('select[name="calc_shipping_provinces"] option').each(function() {
+    
+            if ($(this).text() == address_1) {
+    
+              $(this).attr('selected', '')
+    
+            }
+    
+          })
+    
+          $('input.billing_address_1').attr('value', address_1)
+    
+        }
+    
+        $this.on('change', function(i) {
+    
+          i = $this.children('option:selected').index() - 1
+    
+          var str = '',
+    
+            r = $this.val()
+    
+          if (r != '') {
+    
+            arr[i].forEach(function(el) {
+    
+              str += '<option value="' + el + '">' + el + '</option>'
+    
+              $('select[name="calc_shipping_district"]').html('<option value="">Quận / Huyện</option>' + str)
+    
+            })
+    
+            var address_1 = $this.children('option:selected').text()
+    
+            var district = $('select[name="calc_shipping_district"]').html()
+    
+            localStorage.setItem('address_1_saved', address_1)
+    
+            localStorage.setItem('district', district)
+    
+            $('select[name="calc_shipping_district"]').on('change', function() {
+    
+              var target = $(this).children('option:selected')
+    
+              target.attr('selected', '')
+    
+              $('select[name="calc_shipping_district"] option').not(target).removeAttr('selected')
+    
+              var address_2 = target.text()
+    
+              $('input.billing_address_2').attr('value', address_2)
+    
+              district = $('select[name="calc_shipping_district"]').html()
+    
+              localStorage.setItem('district', district)
+    
+              localStorage.setItem('address_2_saved', address_2)
+    
+            })
+    
+          } else {
+    
+            $('select[name="calc_shipping_district"]').html('<option value="">Quận / Huyện</option>')
+    
+            district = $('select[name="calc_shipping_district"]').html()
+    
+            localStorage.setItem('district', district)
+    
+            localStorage.removeItem('address_1_saved', address_1)
+    
+          }
+    
+        })
+    
+      })
+    
+    })
+    
+    </script>
 </body>
 </html>

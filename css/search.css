@@ -1,232 +1,232 @@
 body{
-    background-color: #D9AFD9;
-          background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
-          height: 100%;
-    
-  }
-    #thanh-ngang{
-      margin-top: 5px;
-      width: 100%;
-      height: 2px;
-      background-color: rgb(123, 121, 121);
-    }
-    #header img{
-      padding-left: 20%;
-      margin-top: 3px;
-    } 
-   
-    ul {
-      list-style: none;
-      padding: 0;
-      margin-top: 25px;
-      border: 1px solid black;
-      width: 33%;
-      height: 50%;
-      border-radius: 20px;
-  }
+  background-color: #D9AFD9;
+        background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+        height: 100%;
   
-    li {
-      line-height: 20px;
-      margin-left: 20px;
-      margin-top: 9px;  
+}
+  #thanh-ngang{
+    margin-top: 5px;
+    width: 100%;
+    height: 2px;
+    background-color: rgb(123, 121, 121);
+  }
+  #header img{
+    padding-left: 20%;
+    margin-top: 3px;
   } 
-    a{
-      color: #0045a8;
-    }
-  
-    a, a:link , a:visited {
-      text-decoration: none;
-      border: #323232;
+ 
+  ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 25px;
+    border: 1px solid black;
+    width: 3%;
+    height: 50%;
+    border-radius: 20px;
+}
+
+  li {
+    line-height: 20px;
+    margin-left: 20px;
+    margin-top: 9px;  
+} 
+  a{
+    color: #0045a8;
   }
-    ul:hover {
-      background-color: #dbdee3;
+
+  a, a:link , a:visited {
+    text-decoration: none;
+    border: #323232;
+}
+  ul:hover {
+    background-color: #dbdee3;
+  }
+
+
+    /* Phần của thanh tìm kiếm */
+    .box {
+    height: 50px;
+    background-color: #146C94;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 100px;
+    position: relative;
+    margin-top: 22px;
+    }
+    
+    
+     .box input  {
+    background: none;
+    outline: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    width: 0px;
+    transition: 0.8s ease;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
     }
   
-  
-      /* Phần của thanh tìm kiếm */
-      .box {
-      height: 50px;
-      background-color: #146C94;
-      border-radius: 30px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-left: 100px;
-      position: relative;
-      margin-top: 22px;
-      }
-      
-      
-       .box input  {
+     .box input::placeholder {
+    color: antiquewhite;
+    }
+    
+    .box a {
+    color: whitesmoke;
+    text-align: center;
+    width: 60px;
+    font-size: 18px;
+    }
+    
+    .box:hover input {
+    width: 200px;
+    margin: 0 20px;
+    border-bottom: 2px solid rgb(242, 241, 241);
+    }
+    
+    .box input:focus {
+    width: 200px;
+    margin: 0 20px;
+    border-bottom: 2px solid rgb(74, 52, 52);
+    }
+    /*  hết thanh tìm kiếm     */
+    select{
       background: none;
-      outline: none;
       border: none;
-      padding: 0;
-      margin: 0;
-      width: 0px;
-      transition: 0.8s ease;
-      color: white;
-      font-size: 18px;
-      font-weight: 600;
+    }  
+    .col-lg-8{
+        flex: 0 0 45%;
+    }
+    table {
+        width: 65%;
+        margin: 20px 30px;
+        border-collapse: collapse;
+        border-spacing: 0px  ;
+        margin-top: 20px;
+        margin-left: 75px;
       }
+      
+      label {
+        margin-bottom: 5px;
+      }
+      
+      select {
+        width: 100%;
+        padding: 5px;
+        font-size: 16px;
+      }
+      th{
+        text-align: center;
+        background-color: #0093E9;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+      }
+      td{
+        background-color:#ccc;
+        border-collapse: separate;
+        border-spacing: 2px ;
+        padding: 10px;
+        border: 1px solid white;
+      }
+      td:nth-child(1){
+        text-align: center;
+      }
+      .last-row{
+        border-radius: 0 0 8px 8px;
+      }
+    .search-location,
+    .search-type,
+    .search-price {
+        flex-grow: 1;
+        margin: 0 10px;
+    }    
+    table.row-lg-6{
+        width: 80%;
+        margin: 20px 30px;
     
-       .box input::placeholder {
-      color: antiquewhite;
-      }
-      
-      .box a {
-      color: whitesmoke;
-      text-align: center;
-      width: 60px;
-      font-size: 18px;
-      }
-      
-      .box:hover input {
-      width: 200px;
-      margin: 0 20px;
-      border-bottom: 2px solid rgb(242, 241, 241);
-      }
-      
-      .box input:focus {
-      width: 200px;
-      margin: 0 20px;
-      border-bottom: 2px solid rgb(74, 52, 52);
-      }
-      /*  hết thanh tìm kiếm     */
-      select{
-        background: none;
-        border: none;
-      }  
-      .col-lg-8{
-          flex: 0 0 45%;
-      }
-      table {
-          width: 65%;
-          margin: 20px 30px;
-          border-collapse: collapse;
-          border-spacing: 0px  ;
-          margin-top: 20px;
-          margin-left: 75px;
-        }
-        
-        label {
-          margin-bottom: 5px;
-        }
-        
-        select {
-          width: 100%;
-          padding: 5px;
-          font-size: 16px;
-        }
-        th{
-          text-align: center;
-          background-color: #0093E9;
-          border-top-left-radius: 8px;
-          border-top-right-radius: 8px;
-        }
-        td{
-          background-color:#ccc;
-          border-collapse: separate;
-          border-spacing: 2px ;
-          padding: 10px;
-          border: 1px solid white;
-        }
-        td:nth-child(1){
-          text-align: center;
-        }
-        .last-row{
-          border-radius: 0 0 8px 8px;
-        }
-      .search-location,
-      .search-type,
-      .search-price {
-          flex-grow: 1;
-          margin: 0 10px;
-      }    
-      table.row-lg-6{
-          width: 80%;
-          margin: 20px 30px;
-      
-      }
-      
-      element.style {
-        padding-top: 0px;
-        padding-bottom: 0px;
-        padding-left: 0px;
-        padding-right: 20px;
-      }
-      .box .search-ico{
-        position: absolute;
-        right: 0;
-        height: 70%;
-        margin-right: 15px;
+    }
     
-      }
-      label input[type="radio"] {
-        order: -1;
-        margin-right: 5px; /* Tạo khoảng cách giữa ô tích tròn và văn bản */
-      }
-      td {
-        vertical-align: middle;
-      }
-          
-      .last-row td:nth-child(1){
-        text-align: start;
-        padding-left: 10%;
-      }
-      
-      /*css input trong bảng price*/
+    element.style {
+      padding-top: 0px;
+      padding-bottom: 0px;
+      padding-left: 0px;
+      padding-right: 20px;
+    }
+    .box .search-ico{
+      position: absolute;
+      right: 0;
+      height: 70%;
+      margin-right: 15px;
   
-      .Price td:nth-child(1){
-           text-align: start;
-           padding-left: 10%;
-      }
-      
-      #content{
-        display: flex;
-      }
-      .search-container{
-        width: 35%;
-      }
-  
-  
-      .list{
-        display: flex;
-        justify-content: space-between;  
-        align-items: stretch;
-      }
-      .list-item{
-        display: flex;
-        width: 82%;
-        border: 1px solid rgb(231, 228, 228);
-        margin-top: 18px;
-        border-radius: 10px;
-      }
-      .list-item img {
-        width: 210px;
-        height: 160px;  
-        border-top-left-radius: 10px;
-        border-bottom-left-radius: 10px;
-       }
-      .info{
-        display: flex;
-        flex-direction: column;
-        padding-left: 15px;
-        padding-top: 5px;
-        justify-content: space-between;
-        padding-right: 20px;
-      }
-      .info h1{
-        font-size: large;
-        color:#0045a8
-      }
-      .info h2{
-        font-size: medium;
-        color:#717171;
-      }
-      .info .gia-phong{
-        align-items: end;
-      }
-      
-  
-  
+    }
+    label input[type="radio"] {
+      order: -1;
+      margin-right: 5px; /* Tạo khoảng cách giữa ô tích tròn và văn bản */
+    }
+    td {
+      vertical-align: middle;
+    }
+        
+    .last-row td:nth-child(1){
+      text-align: start;
+      padding-left: 10%;
+    }
+    
+    /*css input trong bảng price*/
+
+    .Price td:nth-child(1){
+         text-align: start;
+         padding-left: 10%;
+    }
+    
+    #content{
+      display: flex;
+    }
+    .search-container{
+      width: 100%;
+      height: 100%;
+    }
+
+
+    .list{
+      display: flex;
+      justify-content: space-between;  
+      align-items: stretch;
+    }
+    .list-item{
+      display: flex;
+      width: 82%;
+      border: 1px solid rgb(231, 228, 228);
+      margin-top: 18px;
+      border-radius: 10px;
+    }
+    .list-item img {
+      width: 210px;
+      height: 160px;  
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+     }
+    .info{
+      display: flex;
+      flex-direction: column;
+      padding-left: 15px;
+      padding-top: 5px;
+      justify-content: space-between;
+      padding-right: 20px;
+    }
+    .info h1{
+      font-size: large;
+      color:#0045a8
+    }
+    .info h2{
+      font-size: medium;
+      color:#717171;
+    }
+    .info .gia-phong{
+      align-items: end;
+    }
+    
+

@@ -67,9 +67,11 @@
 </head>
 <body>
 
-    <script> addHeader(); </script>
+    
     <?php
-        $conn = new mysqli("localhost", "root", "", "room_rent"); 
+      include 'header.php';
+
+      $conn = new mysqli("localhost", "root", "", "room_rent"); 
 
         $user_id = $_GET['user_id'];
         $sql = "SELECT * FROM users WHERE user_id = $user_id";

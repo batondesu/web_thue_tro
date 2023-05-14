@@ -30,8 +30,10 @@
 
 	   <div id="head" class="container-fluid"> 
 		    <div class="row ">
-				<div class="col-lg-1">
-					<img width="110px" src="./images/logo1.png" alt="">
+				<div class="col-lg-1" href='index.php'>
+					<a href="index.php">
+						<img width="110px" src="./images/logo1.png" >
+					</a>
 				</div>
 				<div class="col-lg-2 text-left my-auto pt-4">
 					<h1 class="text-center " >Trọ Tốt</h1>
@@ -50,7 +52,11 @@
 					<div class=" col-lg-2 text-center"></div>
 					<div class=" col-lg-8">
 						<h1 class="mb-2">ĐĂNG NHẬP</h1>
-						<form action="login_check.php" method="post">
+						<?php 
+							if (isset($_GET['name_url'])) { 
+								$link = $_GET['name_url']; 
+								} else { $link = "index"; }  //echo $link ?>
+						<form action="login_check.php?name_url=<?php echo $link ?>" method="post">
 							<div class="row">
 
 

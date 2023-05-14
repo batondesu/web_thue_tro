@@ -92,7 +92,6 @@
 									</div>
 								</div>
 
-
 								<div class="col-12">
 									<div class="input-group form-group">
 										<div class="input-group-prepend">
@@ -110,6 +109,31 @@
 									</div>
 								</div>
 
+								<div class="col-12">
+									<div class="input-group form-group">
+										<div class="input-group-prepend">
+											<span class="input-group-text"><i class="fa fa-envelope"></i></span>
+										</div>
+										<input 
+                                            type="text" 
+                                            name="email"  
+                                            class="form-control" 
+                                            placeholder="Nhập email"/>
+									</div>
+								</div>
+
+								<div class="col-12">
+									<div class="input-group form-group">
+										<div class="input-group-prepend">
+											<span class="input-group-text"><i class="fa fa-phone"></i></span>
+										</div>
+										<input 
+                                            type="text" 
+                                            name="phone"  
+                                            class="form-control" 
+                                            placeholder="Nhập số điện thoại"/>
+									</div>
+								</div>
 
 								<div class="col-md-6 pr-0">
 									<button type="submit" name="dangky" class="btn btn-primary px-4">

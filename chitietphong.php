@@ -141,8 +141,11 @@
                                                 
                                                 <?php 
                                                     if (!isset($_GET['user_id'])) {
+                                                    $url = "chitietphong?name=";
+                                                    $url .= $_GET['name'];
+                                                    //echo $url;
                                                 ?>
-                                                    <a href="login.php?name=chitietphong" class="tag saved heart">Lưu tin</a>
+                                                    <a href="login.php?name_url=<?php echo $url?>" class="tag saved heart">Lưu tin</a>
                                                 <?php 
                                                     }
                                                 ?>
@@ -189,7 +192,7 @@
                                                     <dl>
                                                         <dt>Giá:</dt>
                                                         <dd>
-                                                            Khoảng <?php echo $row["price"] ?> triệu VND/1 tháng
+                                                            Khoảng <?php echo $row["price"] ?> triệu VNĐ/tháng
                                                         </dd>
                                                     </dl>
                                                     <div class="info">

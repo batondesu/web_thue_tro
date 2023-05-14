@@ -35,15 +35,15 @@ if (isset($_POST['password']) && isset($_POST['name']) ) {
 	    $sql = " SELECT * FROM users WHERE account_name = '$name' AND password = '$pass' ";
 		$result = $conn->query($sql);
 
+		
+			$local = "index.php";
+			$local .= $_SERVER['REQUIRE_URI'];
+		
+
 		if (mysqli_num_rows($result) > 0) {
 			$row = $result->fetch_assoc();
 			
-			if (!isset($_GET['name'])) {
-				$local = "index.php";
-			} else {
-				$local = $_GET['name'];
-				$local .= ".php";
-			}
+
 			
 			$local .= "?user_id=";
 			$local .= $row["user_id"];
@@ -51,12 +51,10 @@ if (isset($_POST['password']) && isset($_POST['name']) ) {
 			$user_id = $row['user_id'];
 			// Lưu thông tin đăng nhập vào session
 			$_SESSION['user_id'] = $user_id;
-
 			// Tạo một cookie chứa mã xác thực
-			
 			setcookie('user_id', $user_id, time() + 3600, '/');
 
-
+			//echo $local;
 			header("Location: $local");
 	        exit();
 		}else {

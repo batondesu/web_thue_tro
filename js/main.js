@@ -49,9 +49,12 @@ function addList() {
                 <div class="listarea"> 
                     <div class="menu">
                         <ul class="list-box">
-                            <li><a href="search.html"> <img src="images/box1">Cầu Giấy </a></li>
-                            <li><a href="search.html"> <img src="images/box2">Thanh Xuân </a></li>
-                            <li><a href="search.html"> <img src="images/box3">Mỹ Đình </a></li>
+                            <li>
+                                <a href="search.html"> Cầu Giấy </a>
+                                <img src="images/CG.jfif">    
+                            </li>
+                            <li><a href="search.html"> Thanh Xuân </a><img src="images/TX.jpg"></li>
+                            <li><a href="search.html"> Đống Đa </a><img src="images/DD.jfif"></li>
                         </ul>
                     </div>
                 </div>
@@ -70,7 +73,7 @@ function addFooter() {
         <div class="footer-info">
             <div class="container">
                 <div class="inner">
-                    <a class="footer-logo" href="index.html"><img src="https://tromoi.com/logo_light.png"></a>
+                    <a class="footer-logo" href="index.html"> <img src="images/homelogo.jpg"></a>
                     <div class="content">
 
                         <div class="block block-1">

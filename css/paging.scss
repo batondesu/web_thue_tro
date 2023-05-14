@@ -1,0 +1,43 @@
+.pagination {
+  width: 100%;
+  margin: 20px auto 0;
+  text-align: center;
+  padding: 0;
+  list-style: none;
+  li {
+    display: inline-block;
+    span,
+    a {
+      border: 1px solid #eee;
+      font: 14px/24px sans-serif;
+      display: inline-block;
+      padding: 9px 18px;
+      margin-right: 4px;
+      border-radius: 6px;
+      font-size: 0.975em;
+      font-weight: normal;
+      text-decoration: none;
+      color: $color_text_pr;
+      transition: all 0.3s ease;
+    }
+    a:hover {
+      background: $color_page;
+      // border: none;
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+  }
+  li.active {
+    span {
+      background: $color_page;
+      color: #fff;
+    }
+  }
+  .limit {
+    margin: 10px auto;
+    select {
+      border-radius: 3px;
+      min-width: 50px;
+    }
+  }
+}

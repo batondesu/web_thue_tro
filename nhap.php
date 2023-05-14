@@ -3,7 +3,7 @@
     $room_id = $_GET['name'];
 
     $conn = new mysqli("localhost", "root", "", "room_rent");
-    $sql = "SELECT * FROM room_booking WHERE user_id = $user_id";
+    $sql = "SELECT * FROM room_booking WHERE user_id = $user_id AND room_id = $room_id";
     $result = $conn->query($sql);
     
     if ( $result->num_rows == 0 ) {

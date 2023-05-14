@@ -18,8 +18,8 @@
     <title>Trọ Tốt</title>
     <link rel="shortcut icon" href="images/logo1.png" />
     
-    <!-- url icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous">
+    <!-- url icons
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous"> -->
 
     <!-- css -->
     <link rel="stylesheet" href="css/trangchu.css">

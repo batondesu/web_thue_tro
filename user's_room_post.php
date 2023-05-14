@@ -14,6 +14,9 @@
     crossorigin="anonymous" />
 
     <style>
+        body {
+            background-color: #FFFAFA;
+        }
         .img-fluid.d-block {
             height: 22vh;
         }
@@ -33,14 +36,35 @@
 </head>
 
 <body>
+
+
+    <?php include "header.php"?>
+
+    <h3 class="mb-2 text-center" style="background-color:#FFE4B5">Phòng trọ của tôi</h3>
+
+
+    <div class="container">
+    <?php if (isset($_GET['error'])) { ?>
+     	<h4><?php echo $_GET['error']; ?></h4>
+    <?php } ?>
+    <?php if (isset($_GET['success'])) { ?>
+        <h4><?php echo $_GET['success']; ?></h4>
+    <?php } ?>
+    <br>
+    </div>
+
+
+    
     <?php $conn = new mysqli("localhost", "root", "", "room_rent");
-        $sql = "SELECT r.*,i.image, (r.price / r.size) AS abc FROM `room_info` r
-            LEFT JOIN image_vid i
-            ON i.room_id=r.room_id
-            WHERE r.status2 = 'yes'
-            ORDER BY abc
-            LIMIT 8" ;
+        $user_id = $_GET['user_id'];
+        $sql = "SELECT r.*,i.image,rr.user_id FROM `room_info` r
+                    LEFT JOIN image_vid i
+                    ON i.room_id=r.room_id
+                    LEFT JOIN rental_room rr
+                    ON r.room_id=rr.room_id
+                    WHERE rr.user_id=$user_id" ;
         $result = $conn->query($sql);
+        
     ?>
 
     <section id="gallery">
@@ -73,8 +97,9 @@
                             }
                         }
             ?>
-                        <div class="col-lg-3 mb-3">
-                    <div class="card">
+            
+            <div class="col-lg-3 mb-3">
+                <div class="card">
                         <img src="<?php echo $list_image[1] ?>" alt=""
                             class="card-img-top img-fluid d-block mx-auto">
                         <div class="card-body">
@@ -88,15 +113,14 @@
                                 </p>
                                 <p class="recipe-desc">Diện tích: <?php echo $row["size"] ?>m²
                                  </p>
-                                 <p class="recipe-desc">Giá: Khoảng <?php echo $row["price"] ?> triệu VNĐ/tháng
+                                 <p class="recipe-desc">Giá: <?php echo $row["price"] ?> triệu VND
                                  </p>
                             </div>
                             <a href="<?php echo $link ?>" name="<?php echo $row["room_id"] ?>" class="btn btn-outline-success btn-sm">Read More</a>
-                            <a href="" class="btn btn-outline-danger btn-sm"><i
-                                    class="far fa-heart"></i></a>
+                            
                         </div>
                     </div>
-                </div>
+            </div>
             <?php
                     }
                 } 

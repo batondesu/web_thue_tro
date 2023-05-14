@@ -14,6 +14,9 @@
     crossorigin="anonymous" />
 
     <style>
+        body {
+            background-color: #FFFAFA;
+        }
         .img-fluid.d-block {
             height: 22vh;
         }
@@ -33,15 +36,32 @@
 </head>
 
 <body>
+
+
+    <?php include "header.php"?>
+
+    <h3 class="mb-2 text-center" style="background-color:#FFE4B5">Duyệt phòng trọ mới đăng</h3>
     <?php $conn = new mysqli("localhost", "root", "", "room_rent");
-        $sql = "SELECT r.*,i.image, (r.price / r.size) AS abc FROM `room_info` r
+        $sql = "SELECT r.*,i.image FROM `room_info` r
             LEFT JOIN image_vid i
             ON i.room_id=r.room_id
-            WHERE r.status2 = 'yes'
-            ORDER BY abc
-            LIMIT 8" ;
+            WHERE r.status2 = 'no'" ;
         $result = $conn->query($sql);
+        $user_id = $_GET['user_id'];
+        
     ?>
+
+    <div class="container">
+    <?php if (isset($_GET['error'])) { ?>
+     	<h4><?php echo $_GET['error']; ?></h4>
+    <?php } ?>
+    <?php if (isset($_GET['success'])) { ?>
+        <h4><?php echo $_GET['success']; ?></h4>
+    <?php } ?>
+    <br>
+    </div>
+
+
 
     <section id="gallery">
     <div class="container">
@@ -73,7 +93,8 @@
                             }
                         }
             ?>
-                        <div class="col-lg-3 mb-3">
+            
+            <div class="col-lg-3 mb-3">
                     <div class="card">
                         <img src="<?php echo $list_image[1] ?>" alt=""
                             class="card-img-top img-fluid d-block mx-auto">
@@ -88,15 +109,18 @@
                                 </p>
                                 <p class="recipe-desc">Diện tích: <?php echo $row["size"] ?>m²
                                  </p>
-                                 <p class="recipe-desc">Giá: Khoảng <?php echo $row["price"] ?> triệu VNĐ/tháng
+                                 <p class="recipe-desc">Giá: <?php echo $row["price"] ?> triệu VND
                                  </p>
                             </div>
                             <a href="<?php echo $link ?>" name="<?php echo $row["room_id"] ?>" class="btn btn-outline-success btn-sm">Read More</a>
-                            <a href="" class="btn btn-outline-danger btn-sm"><i
-                                    class="far fa-heart"></i></a>
+                            <a>    </a>
+                            <a href="admin_browse_post.php?room_id=<?php echo $row["room_id"]?>&user_id=<?php echo $user_id?>" class="btn btn-outline-success btn-sm fa fa-home">Duyệt</a>
+                            <a>    </a>
+                            <a href="admin_browse_trash.php?room_id=<?php echo $row["room_id"]?>&user_id=<?php echo $user_id?>" class="btn btn-outline-success btn-sm fa fa-trash">Xóa</a>
+                            
                         </div>
                     </div>
-                </div>
+            </div>
             <?php
                     }
                 } 

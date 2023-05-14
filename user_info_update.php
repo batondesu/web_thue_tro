@@ -32,6 +32,23 @@ if (isset($_POST['name']) && isset($_POST['account_name']) && isset($_POST['pass
 	}
 
 	else{
+        $sql2 = " SELECT * FROM users WHERE user_id != $user_id AND account_name = '$name' ";
+		$result2 = $conn->query($sql2);
+		$sql4 = " SELECT * FROM users WHERE user_id != $user_id AND email = '$email' ";
+		$result4 = $conn->query($sql4);
+		$sql5 = " SELECT * FROM users WHERE user_id != $user_id AND tel = '$phone' ";
+		$result5= $conn->query($sql5);
+
+		if (mysqli_num_rows($result2) > 0) {
+			header("Location: user_info_edit.php?error=Tài khoản đã tồn tại!!!&user_id=$user_id");
+	        exit();
+		} else if (mysqli_num_rows($result4) > 0) {
+			header("Location: user_info_edit.php?error=Email đã tồn tại!!!&user_id=$user_id");
+	        exit();
+		} else if (mysqli_num_rows($result5) > 0) {
+			header("Location: user_info_edit.php?error=Số điện thoại đã tồn tại!!!&user_id=$user_id");
+	        exit();
+		} else {
 
 		// hashing the password
         //$pass = md5($pass);
@@ -53,6 +70,7 @@ if (isset($_POST['name']) && isset($_POST['account_name']) && isset($_POST['pass
 	           	header("Location: user_info_edit.php?error=Xảy ra lỗi không xác định!!!&user_id=$user_id");
 		        exit();
             }
+        }
 	}
 	
 }else{

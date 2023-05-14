@@ -35,37 +35,40 @@
 </head>
 <body>
 
-    <?php
-        include 'header.php';
+<?php 
+    $list_id = [];
+    $count = 0;
+    $city = 'TP. Hồ Chí Minh';
+    $district = 'Quận Tân Bình';
 
-        $user_id = $_GET['user_id'];
-        
-        $conn = new mysqli("localhost", "root", "", "room_rent");
-        $sql = "SELECT count(room_id) AS total FROM room_booking
-                WHERE user_id = $user_id" ;
-        $result = $conn->query($sql);
-        $row = $result->fetch_assoc();
-        
-        $count = $row['total'];
-        $curPage = ceil($count/10);
-    ?>
+    $conn = new mysqli("localhost", "root", "", "room_rent");
+    $sql = "SELECT * FROM room_info" ;
+    $result = $conn->query($sql);
 
-    <?php    
-    
-        if (isset($_GET['page'])) {
-            $page = $_GET['page'];
-        } else {
-            $page = 1;
+    while ($row = $result->fetch_array()) {
+        if ( $row['city'] == $city && $row['district'] == $district ) {
+            $list_id[++$count] = $row['room_id'];
+           // echo $row['room_id'].' ';
         }
-        $left = ($page - 1) * 10;
-        $right = $left + 10;
+    }
+?>
 
-        $sql = "SELECT room_id FROM room_booking
-                WHERE  user_id = $user_id
-                LIMIT $left,$right" ;
+<?php
+    $link_url ="";
+    if (isset($_GET['user_id'])) {
+        $link_url = "&user_id=";
+        $link_url .= $_GET['user_id'];
+    }
 
-        $result = $conn->query($sql);
-    ?>
+    if (isset($_GET['page'])) {
+        $page = $_GET['page'];
+    } else {
+        $page = 1;
+    }
+    $left = ($page - 1) * 10 + 1;
+    $right = $left + 9;
+    $curPage = ceil($count/10);
+?>
 
     
     <div id="main-body">	
@@ -73,14 +76,13 @@
             <div class="container">
                 <div class="module module-saved">
                     <div class="module-header">
-                        Tin lưu trữ
-                        <p class="description">Nơi lưu trữ tin của bạn.</p>
+                        Có <?php echo $count ?> kết quả
                     </div>
                     <div class="module-content hostel hostel-list">	       
     <?php
-        if ( $result->num_rows > 0 ){
-            while ($id = $result->fetch_array()){
-                $room_id = $id['room_id'];
+        for ($u = $left; $u <= min($right,$count) ; ++$u) {
+                
+                $room_id = $list_id[$u];
                 $sql = "SELECT *, i.image FROM room_info r
                         LEFT JOIN image_vid i
                         ON i.room_id = r.room_id
@@ -107,7 +109,7 @@
                         <div class="item hot column" title="<?php echo $row['title'] ?>">
                             <div class="border">
                                 <div class="image">	
-                                    <a href="chitietphong.php?user_id=<?php echo $user_id ?>&name=<?php echo $row['room_id'] ?>" style="background-image:url('<?php echo $list_image[1] ?>')">
+                                    <a href="chitietphong.php?name=<?php echo $row['room_id'] ?><?php echo $link_url ?>" style="background-image:url('<?php echo $list_image[1] ?>')">
                                         
                                     </a>
                                 </div>
@@ -115,13 +117,13 @@
                                 <div class="info col">
                                     <div class="star">
                                         <span class="local">
-                                            <a href="chitietphong.php?user_id=<?php echo $user_id ?>&name=<?php echo $row['room_id'] ?>">
+                                            <a href="chitietphong.php?name=<?php echo $row['room_id'] ?><?php echo $link_url ?>">
                                                 <?php echo $row['city'] ?>
                                             </a>							
                                         </span>
                                     </div>
                                     <h4 class="title hot">
-                                        <a href="chitietphong.php?user_id=<?php echo $user_id ?>&name=<?php echo $row['room_id'] ?>">
+                                        <a href="chitietphong.php?name=<?php echo $row['room_id'] ?><?php echo $link_url ?>">
                                         <?php echo $row['title'] ?>					
                                         </a>
                                     </h4>
@@ -142,7 +144,6 @@
                             </div>										                
                         </div>     
     <?php
-            }
         }
     ?>                  <div class="paginator">
                             <ul class="pagination">
@@ -153,7 +154,7 @@
                                         </li><?php
                                     } else {
                                         ?><li> 
-                                            <a href="saveroom.php?user_id=<?php echo $user_id?>&page=<?php $pre=$page-1; echo $pre ?>">
+                                            <a href="list.php?page=<?php $pre=$page-1; echo $pre ?><?php echo $link_url ?>">
                                             «
                                             </a>
                                         </li><?php
@@ -161,7 +162,7 @@
 
                                     for ($i = max($page-2,1) ; $i<$page; ++$i) { 
                                         ?><li> 
-                                            <a href="saveroom.php?user_id=<?php echo $user_id?>&page=<?php echo $i?>">
+                                            <a href="list.php?page=<?php echo $i?><?php echo $link_url ?>">
                                                 <?php echo $i ?>
                                             </a>
                                         </li><?php
@@ -173,7 +174,7 @@
 
                                     for ($i = $page+1 ; $i<=$curPage; ++$i) { 
                                         ?><li> 
-                                            <a href="saveroom.php?user_id=<?php echo $user_id?>&page=<?php echo $i?>">
+                                            <a href="list.php?page=<?php echo $i?><?php echo $link_url ?>">
                                                 <?php echo $i ?>
                                             </a>
                                         </li><?php
@@ -184,7 +185,7 @@
                                         </li><?php
                                     } else {
                                         ?><li> 
-                                            <a href="saveroom.php?user_id=<?php echo $user_id?>&page=<?php $pos=$page+1;echo $pos?>">
+                                            <a href="list.php?page=<?php $pos=$page+1; echo $pos?><?php echo $link_url ?>">
                                             »
                                             </a>
                                         </li><?php
@@ -197,8 +198,7 @@
             </div>		
         </div>
     </div>
-                                    
-    <script> addFooter(); </script>
-
+    
+</div>
 </body>
 </html>
