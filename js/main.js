@@ -50,11 +50,11 @@ function addList() {
                     <div class="menu">
                         <ul class="list-box">
                             <li>
-                                <a href="search.html"> Cầu Giấy </a>
+                                <a href="search.php"> Cầu Giấy </a>
                                 <img src="images/CG.jfif">    
                             </li>
-                            <li><a href="search.html"> Thanh Xuân </a><img src="images/TX.jpg"></li>
-                            <li><a href="search.html"> Đống Đa </a><img src="images/DD.jfif"></li>
+                            <li><a href="search.php"> Thanh Xuân </a><img src="images/TX.jpg"></li>
+                            <li><a href="search.php"> Đống Đa </a><img src="images/DD.jfif"></li>
                         </ul>
                     </div>
                 </div>
@@ -73,16 +73,16 @@ function addFooter() {
         <div class="footer-info">
             <div class="container">
                 <div class="inner">
-                    <a class="footer-logo" href="index.html"> <img src="images/homelogo.jpg"></a>
+                    <a class="footer-logo" href="index.php"> <img src="images/homelogo.png"></a>
                     <div class="content">
 
                         <div class="block block-1">
                             <h2>Hệ thống</h2>
                             <ul>
-                                <li><a href="search.html">Phòng trọ</a></li>
-                                <li><a href="search.html">Nhà, căn hộ cho thuê</a></li>
-                                <li><a href="search.html">Tìm ở ghép</a></li>
-                                <li><a href="lease.html">Cho thuê</a></li>
+                                <li><a href="search.php">Phòng trọ</a></li>
+                                <li><a href="search.php">Nhà, căn hộ cho thuê</a></li>
+                                <li><a href="search.php">Tìm ở ghép</a></li>
+                                <li><a href="room_post.php">Cho thuê</a></li>
                             </ul>
                         </div>
                 
