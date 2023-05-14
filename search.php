@@ -412,8 +412,16 @@
                 if ( link.charAt(0) == "&" ) link = link.substring(1);
                 console.log(data); // In dữ liệu ra console để kiểm tra
 
+                var url = new URL(window.location.href);
+                var user_id = url.searchParams.get("user_id"); 
+
                 link = "search.php?" + link;
-                window.location.href = link;
+                if ( user_id != null ) {
+                  link += "&user_id=";
+                  link +=user_id;
+                }
+                console.log(link);
+                 window.location.href = link;
               }
           </script>
           
@@ -439,7 +447,7 @@
               else { $right1 = 100;}
             }
             
-            //echo $city.' '.$district.' '.$type.' '.$price.'<br/>';
+            
 
             $conn = new mysqli("localhost", "root", "", "room_rent");
             $sql = "SELECT * FROM room_info" ;
@@ -485,22 +493,40 @@
               if ( $city != "" && $district == "" && $type != "all" && $price != "all"){ 
                 if ($type == $row['type'] && $price <= $row['price'] && $row['price'] <= $right1) 
                 {$list_id[++$count] = $row['room_id'];}}
+
+              if ( $city != "" && $district != "" && $type == "all" && $price == "all"){
+                if ( $city == $row['city'] && $district == $row['district']) {$list_id[++$count] = $row['room_id'];}}
+
+              if ( $city == "" && $district == "" && $type != "all" && $price != "all"){
+                if ( $type == $row['type'] && $price <= $row['price'] && $row['price'] <= $right1 ) {$list_id[++$count] = $row['room_id'];}}
             }
-
-
+            
+            $list_id = array_unique($list_id);
+            //print_r($list_id);
+            $list_id = array_values($list_id);
+            $count = count($list_id);
+           
+            for ($ii = 0 ; $ii < $count; ++$ii) {
+              //echo $list_id[$ii].' ';
+            }
+              // echo $count.' '.$city.' '.$district.' '.$type.' '.$price.'<br/>';
+            
+            $load_link = "";
             if (isset($_GET['user_id'])) {
-              $link_url = "&user_id=";
-              $link_url .= $_GET['user_id'];
+              $load_link = "&user_id=";
+              $load_link .= $_GET['user_id'];
             }
-        
+
+            $page = 0;
             if (isset($_GET['page'])) {
                 $page = $_GET['page'];
             } else {
                 $page = 1;
             }
-            $left = ($page - 1) * 10 + 1;
+            $left = ($page - 1) * 10 ;
             $right = $left + 9;
             $curPage = ceil($count/10);
+            //$count--;
           ?>
 
           <div class="module-header">
@@ -508,7 +534,12 @@
           </div>
           <div class="module-content hostel hostel-list">	       
       <?php
-          for ($u = $left; $u <= min($right,$count) ; ++$u) {
+          if (isset($_GET['user_id'])) {
+            $link_url = "&user_id=";
+            $link_url .= $_GET['user_id'];
+            //echo $link_url;
+          }
+          for ($u = $left; $u <= min($right,$count - 1) ; ++$u) {
                   
                   $room_id = $list_id[$u];
                   $sql = "SELECT *, i.image FROM room_info r
@@ -537,21 +568,23 @@
                           <div class="item hot column" title="<?php echo $row['title'] ?>">
                               <div class="border">
                                   <div class="image">	
-                                      <a href="chitietphong.php?name=<?php echo $row['room_id'] ?><?php echo $link_url ?>" style="background-image:url('<?php echo $list_image[1] ?>')">
-                                          
+                                      <a href="chitietphong.php?name=<?php echo $row['room_id'].$load_link ?>" 
+                            
+                                      style="background-image:url('<?php echo $list_image[1] ?>')">
+                                        
                                       </a>
                                   </div>
 
                                   <div class="info col">
                                       <div class="star">
                                           <span class="local">
-                                              <a href="chitietphong.php?name=<?php echo $row['room_id'] ?><?php echo $link_url ?>">
+                                              <a href="chitietphong.php?name=<?php echo $row['room_id'].$load_link ?>">
                                                   <?php echo $row['city'] ?>
                                               </a>							
                                           </span>
                                       </div>
                                       <h4 class="title hot">
-                                          <a href="chitietphong.php?name=<?php echo $row['room_id'] ?><?php echo $link_url ?>">
+                                          <a href="chitietphong.php?name=<?php echo $row['room_id'].$load_link ?>">
                                           <?php echo $row['title'] ?>					
                                           </a>
                                       </h4>

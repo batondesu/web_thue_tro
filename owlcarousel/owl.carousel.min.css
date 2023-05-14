@@ -56,7 +56,7 @@
 .images .owl-carousel .owl-item img{
     display:block;
     max-width: 1180px;
-    width:100%; 
+    width:97%; 
     height: 500px;
     border-radius: 30px;
     /*height: auto;*/
@@ -70,6 +70,7 @@
     border-radius: 30px;
     margin: 20px;
     /*height: auto;*/
+    border-radius: 30px;
 }
 
 .owl-carousel .owl-dots.disabled,.owl-carousel .owl-nav.disabled{

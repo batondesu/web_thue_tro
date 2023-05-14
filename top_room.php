@@ -44,6 +44,7 @@
     ?>
 
     <section id="gallery">
+    <h1 style="margin-left: 110px;"> Lựa Chọn Nổi Bật </h1>
     <div class="container">
         <div class="row">
             <?php 
