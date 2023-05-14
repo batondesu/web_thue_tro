@@ -38,7 +38,7 @@ CREATE TABLE `image_vid` (
 --
 
 INSERT INTO `image_vid` (`room_id`, `image`, `vid`) VALUES
-(1, 'https://pt123.cdn.static123.com/images/thumbs/900x600/fit/2022/07/03/507ce676-0681-4fe6-bac3-55a7eef', NULL),
+(1, 'https://pt123.cdn.static123.com/images/thumbs/900x600/fit/2022/07/03/507ce676-0681-4fe6-bac3-55a7eef.jpg', NULL),
 (2, 'https://pt123.cdn.static123.com/images/thumbs/900x600/fit/2022/07/28/7041eddc052cff72a63d_1658997072.jpg\nhttps://pt123.cdn.static123.com/images/thumbs/900x600/fit/2022/07/28/c97b82136820907ec931_1658997073.jpg\nhttps://pt123.cdn.static123.com/images/thumbs/900x600/fit/2022/07/28/5021c4a9a35c45021c4d_1658997058.jpg\nhttps://pt123.cdn.static123.com/images/thumbs/900x600/fit/2022/07/28/toa-nha-52_1658997059.jpg', NULL),
 (3, 'https://pt123.cdn.static123.com/images/thumbs/900x600/fit/2022/08/09/z3163158670908-88dc233c70dfc3716afc7b376cd2520e_1660008859.jpg\r\nhttps://pt123.cdn.static123.com/images/thumbs/900x600/fit/2022/07/28/3_1658996883.jpg\r\nhttps://pt123.cdn.static123.com/images/thumbs/900x600/fit/2022/07/28/photo-2022-02-07-10-05-40_1658996883.jpg\r\nhttps://pt123.cdn.static123.com/images/thumbs/900x600/fit/2022/08/09/photo-2022-02-07-10-05-27_1660008856.jpg\r\n', NULL),
 (4, 'https://pt123.cdn.static123.com/images/thumbs/900x600/fit/2022/07/14/8_1657763752.jpg\r\nhttps://pt123.cdn.static123.com/images/thumbs/900x600/fit/2020/02/26/tp_1582694811.jpg\r\nhttps://pt123.cdn.static123.com/images/thumbs/900x600/fit/2022/07/14/1_1657763751.jpg', NULL),
