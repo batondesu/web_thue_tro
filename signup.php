@@ -27,7 +27,8 @@
 		<div id="head" class="container-fluid"> 
 		    <div class="row ">
 				<div class="col-lg-1">
-					<img width="110px" src="./images/logo1.png" alt="">
+					
+					<a href="index.php"> <img width="110px" src="./images/logo1.png" alt=""></a>
 				</div>
 				<div class="col-lg-2 text-left my-auto pt-4">
 					<h1 class="text-center " >Trọ Tốt</h1>
