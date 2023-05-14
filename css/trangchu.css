@@ -5,6 +5,12 @@
     -o-box-sizing: border-box;
 }
 
+.logo i{
+    color:#323232;
+    font-style: normal;
+    font-size: 20px;
+    font-weight: 500;
+}
 body {
     height: 100%;
     margin: 0;
@@ -115,7 +121,7 @@ a:hover, a:active {
 .listarea .list-box{
     
     position: relative;
-    border: 1px solid rgb(204, 197, 197);
+    border: 1px solid rgb(207, 201, 201);
     height: 246px;
     border-radius: 25px;
 }
