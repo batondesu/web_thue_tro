@@ -412,8 +412,16 @@
                 if ( link.charAt(0) == "&" ) link = link.substring(1);
                 console.log(data); // In dữ liệu ra console để kiểm tra
 
+                var url = new URL(window.location.href);
+                var user_id = url.searchParams.get("user_id"); 
+
                 link = "search.php?" + link;
-                window.location.href = link;
+                if ( user_id != null ) {
+                  link += "&user_id=";
+                  link +=user_id;
+                }
+                console.log(link);
+                 window.location.href = link;
               }
           </script>
           
@@ -494,12 +502,14 @@
             }
             
             //echo $count.' '.$city.' '.$district.' '.$type.' '.$price.'<br/>';
-
+            
+            $load_link = "";
             if (isset($_GET['user_id'])) {
-              $link_url = "&user_id=";
-              $link_url .= $_GET['user_id'];
+              $load_link = "&user_id=";
+              $load_link .= $_GET['user_id'];
             }
-        
+
+            $page = 0;
             if (isset($_GET['page'])) {
                 $page = $_GET['page'];
             } else {
@@ -515,6 +525,11 @@
           </div>
           <div class="module-content hostel hostel-list">	       
       <?php
+          if (isset($_GET['user_id'])) {
+            $link_url = "&user_id=";
+            $link_url .= $_GET['user_id'];
+            //echo $link_url;
+          }
           for ($u = $left; $u <= min($right,$count) ; ++$u) {
                   
                   $room_id = $list_id[$u];
@@ -544,21 +559,23 @@
                           <div class="item hot column" title="<?php echo $row['title'] ?>">
                               <div class="border">
                                   <div class="image">	
-                                      <a href="chitietphong.php?name=<?php echo $row['room_id'] ?><?php echo $link_url ?>" style="background-image:url('<?php echo $list_image[1] ?>')">
-                                          
+                                      <a href="chitietphong.php?name=<?php echo $row['room_id'].$load_link ?>" 
+                            
+                                      style="background-image:url('<?php echo $list_image[1] ?>')">
+                                        
                                       </a>
                                   </div>
 
                                   <div class="info col">
                                       <div class="star">
                                           <span class="local">
-                                              <a href="chitietphong.php?name=<?php echo $row['room_id'] ?><?php echo $link_url ?>">
+                                              <a href="chitietphong.php?name=<?php echo $row['room_id'].$load_link ?>">
                                                   <?php echo $row['city'] ?>
                                               </a>							
                                           </span>
                                       </div>
                                       <h4 class="title hot">
-                                          <a href="chitietphong.php?name=<?php echo $row['room_id'] ?><?php echo $link_url ?>">
+                                          <a href="chitietphong.php?name=<?php echo $row['room_id'].$load_link ?>">
                                           <?php echo $row['title'] ?>					
                                           </a>
                                       </h4>
