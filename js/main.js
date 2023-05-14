@@ -42,23 +42,27 @@ function addList() {
     document.write(`        
 	<div class="main-content">
         <div class="head-box">
-            <div class="box-header">
-                <div class="gioithieu">
-                    <h1> TRANG THÔNG TIN TÌM VÀ CHO THUÊ PHÒNG TRỌ NHANH CHÓNG HIỆU QUẢ </h1>
+            
+            <div class="gioithieu">
+                <h1> TRANG THÔNG TIN TÌM VÀ CHO THUÊ PHÒNG TRỌ NHANH CHÓNG HIỆU QUẢ </h1>
+            </div>
+            <div class="listarea"> 
+                <div class="list-box">
+                <img src="images/CG.jpg">    
+                <a href="search.php"> Cầu Giấy </a>
                 </div>
-                <div class="listarea"> 
-                    <div class="menu">
-                        <ul class="list-box">
-                            <li>
-                                <a href="search.html"> Cầu Giấy </a>
-                                <img src="images/CG.jfif">    
-                            </li>
-                            <li><a href="search.html"> Thanh Xuân </a><img src="images/TX.jpg"></li>
-                            <li><a href="search.html"> Đống Đa </a><img src="images/DD.jfif"></li>
-                        </ul>
-                    </div>
+
+                <div class="list-box">
+                <img src="images/DD.jpg">
+                <a href="search.php"> Đống Đa </a>   
+                </div>
+
+                <div class="list-box">
+                <img src="images/TX.jpg">
+                <a href="search.php"> Thanh Xuân </a>   
                 </div>
             </div>
+            
         </div>
     </div>
 
