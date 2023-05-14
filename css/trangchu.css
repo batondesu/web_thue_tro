@@ -58,7 +58,6 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     padding: 0;
     border: 0;
     outline: 0;
-    vertical-align: baseline;
 }
 
 a:hover, a:active {
@@ -399,4 +398,62 @@ footer {
 .banner img {
     max-width: 100%;
     width: auto;
+}
+.vi-tri{
+    display: inline-block;
+    width: 60%;
+    border: 1px solid rgb(180, 177, 177);
+    border-radius: 12px;
+}
+.vi-tri th{
+    text-align: center;
+    border-bottom: 1px solid rgb(180, 177, 177) ;
+}
+.vi-tri select{
+    margin-left: 15px;
+    margin-top:7px;
+}
+.the-loai{
+    display: inline-block;
+    width: 60%;
+    border: 1px solid rgb(180, 177, 177);
+    border-radius: 12px;
+}
+.the-loai th{
+    text-align: center;
+    border-bottom: 1px solid rgb(180, 177, 177) ;
+}
+.the-loai label{
+   margin-left: 15px;
+   margin-top:4px;
+   margin-bottom: 4px;
+}
+.gia-tien{
+    display: inline-block;
+    width: 60%;
+    border: 1px solid rgb(180, 177, 177);
+    border-radius: 12px;
+}
+.gia-tien th{
+    text-align: center;
+    border-bottom: 1px solid rgb(180, 177, 177) ;
+}
+.gia-tien label{
+    margin-left: 15px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+button{
+    border-radius: 10px;
+}
+.logo a{
+    height: 50px;
+}
+#sticky{
+    
+    position: sticky;
+    top :0;
+}
+#can-giua a{
+    vertical-align: center;
 }

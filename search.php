@@ -47,7 +47,8 @@
         <div class="module module-saved">
           <div class="module-header">
             <form id="sidebar" >
-              <table class="location ">
+              <div class="vi-tri">
+                <table class="location ">
                   <tr>
                       <th colspan="2" for="city ">ĐỊA ĐIỂM ,VỊ TRÍ</th>
                   </tr>  
@@ -66,7 +67,10 @@
                     <input class="billing_address_2" name="" type="hidden" value="">
                   </tr>
               </table>
-              <table class="type ">
+              </div>
+                
+              <div class="the-loai">
+                <table class="type ">
                   <tr>
                       <th colspan="2" >TÌM KIẾM THEO LOẠI HÌNH</th>
                   </tr>
@@ -104,7 +108,10 @@
                       </td>
                   </tr>
               </table>
-              <table class="Price ">
+              </div>
+              
+              <div class="gia-tien">
+                <table class="Price ">
                 <tr>
                   <th>TÌM KIẾM THEO GIÁ</th>
                 </tr>
@@ -190,8 +197,9 @@
                   </td>
                 </tr>
               </table>
-
-              <button type="submit">TÌM KIẾM </button>
+              </div>
+              <div><button type="submit">TÌM KIẾM </button></div>
+              
             </form>
           </div>
 
