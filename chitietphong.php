@@ -210,7 +210,7 @@
                                                             <dl>
                                                                 <dt>Ở tối đa:</dt>
                                                                 <dd>
-                                                                    <?php echo round($row["size"]/10) ?> người
+                                                                    <?php echo round($row["size"]/13) ?> người
                                                                 </dd>
                                                             </dl>
                                                             <dl>
