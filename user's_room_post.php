@@ -88,7 +88,7 @@
                         $image_url .= " ";
                         $image = "";
                         for ($i = 0 ; $i < strlen($image_url); ++$i) {
-                            if ( substr($image, -4) == ".jpg" ) {
+                            if ( substr($image, -4) == ".jpg" || ($image_url[$i] == " " && substr($image, -4) != ".jpg") ) {
                                 $list_image[++$dem] = $image;
                                 $image = "";
                                 }

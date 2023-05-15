@@ -43,8 +43,8 @@
         $result = $conn->query($sql);
     ?>
 
-    <section id="gallery">
-    <h1 style="margin-left: 110px;"> Lựa Chọn Nổi Bật </h1>
+    <section id="gallery"> 
+    <h1 style="margin-left: 110px; font-color = #cb6b28; " > Lựa Chọn Nổi Bật </h1>
     <div class="container">
         <div class="row">
             <?php 
@@ -65,7 +65,7 @@
                         $image_url .= " ";
                         $image = "";
                         for ($i = 0 ; $i < strlen($image_url); ++$i) {
-                            if ( substr($image, -4) == ".jpg" ) {
+                            if ( substr($image, -4) == ".jpg" || ($image_url[$i] == " " && substr($image, -4) != ".jpg") ) {
                                 $list_image[++$dem] = $image;
                                 $image = "";
                                 }

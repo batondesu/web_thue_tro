@@ -125,7 +125,7 @@ function addReport() {
     <div class="section box box-contract">
     <div class="container">
         <div class="box-header"> <h1 class="box-title text-center text-upper text-black">Hỗ trợ khách hàng và phản hồi </h1> </div>
-        <div class="description d-flex"> 
+        <div class="description "> 
             <p class="text-center">
             Bạn cần hỗ trợ 
                 <span class="highlight">

@@ -237,11 +237,12 @@ p {
         align-items: center;
     }
 
-.box-contract .description {
-    text-align: center;
-    font-size: 16px;
-    font-weight: 600;
-}
+        .box-contract .description {
+            text-align: center;
+            font-size: 16px;
+            font-weight: 600;
+            height: 22px;
+        }
     .box-contract .box-body .inner {
         display: flex;
         flex-wrap: wrap;

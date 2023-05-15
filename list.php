@@ -71,133 +71,132 @@
 ?>
 
     
-    <div id="main-body">	
-        <div class="main-content">
-            <div class="container">
-                <div class="module module-saved">
-                    <div class="module-header">
-                        Có <?php echo $count ?> kết quả
-                    </div>
-                    <div class="module-content hostel hostel-list">	       
-    <?php
-        for ($u = $left; $u <= min($right,$count) ; ++$u) {
-                
-                $room_id = $list_id[$u];
-                $sql = "SELECT *, i.image FROM room_info r
-                        LEFT JOIN image_vid i
-                        ON i.room_id = r.room_id
-                        WHERE r.room_id = $room_id";
-                $res = $conn->query($sql);
-                $row = $res->fetch_assoc(); 
+    <div class="module-header">
+              Có <?php echo $count ?> kết quả
+          </div>
+          <div class="module-content hostel hostel-list">	       
+      <?php
+          if (isset($_GET['user_id'])) {
+            $link_url = "&user_id=";
+            $link_url .= $_GET['user_id'];
+            //echo $link_url;
+          }
+          for ($u = $left; $u <= min($right,$count - 1) ; ++$u) {
+                  
+                  $room_id = $list_id[$u];
+                  $sql = "SELECT *, i.image FROM room_info r
+                          LEFT JOIN image_vid i
+                          ON i.room_id = r.room_id
+                          WHERE r.room_id = $room_id";
+                  $res = $conn->query($sql);
+                  $row = $res->fetch_assoc(); 
 
-                $image_url = $row["image"];
-                $list_image = [];
-                $dem = 0;
+                  $image_url = $row["image"];
+                  $list_image = [];
+                  $dem = 0;
 
-                $image_url .= " ";
-                $image = "";
-                for ($i = 0 ; $i < strlen($image_url); ++$i) {
-                    if ( substr($image, -4) == ".jpg" ) {
-                        $list_image[++$dem] = $image;
-                        $image = "";
-                        }
-                    else {
-                        $image .= $image_url[$i];
-                    }
-                }
-    ?>   
-                        <div class="item hot column" title="<?php echo $row['title'] ?>">
-                            <div class="border">
-                                <div class="image">	
-                                    <a href="chitietphong.php?name=<?php echo $row['room_id'] ?><?php echo $link_url ?>" style="background-image:url('<?php echo $list_image[1] ?>')">
+                  $image_url .= " ";
+                  $image = "";
+                  for ($i = 0 ; $i < strlen($image_url); ++$i) {
+                    if ( substr($image, -4) == ".jpg" || ($image_url[$i] == " " && substr($image, -4) != ".jpg") ) {
+                          $list_image[++$dem] = $image;
+                          $image = "";
+                          }
+                      else {
+                          $image .= $image_url[$i];
+                      }
+                  }
+      ?>   
+                          <div class="item hot column" title="<?php echo $row['title'] ?>">
+                              <div class="border">
+                                  <div class="image">	
+                                      <a href="chitietphong.php?name=<?php echo $row['room_id'].$load_link ?>" 
+                            
+                                      style="background-image:url('<?php echo $list_image[1] ?>')">
                                         
-                                    </a>
-                                </div>
+                                      </a>
+                                  </div>
 
-                                <div class="info col">
-                                    <div class="star">
-                                        <span class="local">
-                                            <a href="chitietphong.php?name=<?php echo $row['room_id'] ?><?php echo $link_url ?>">
-                                                <?php echo $row['city'] ?>
-                                            </a>							
-                                        </span>
-                                    </div>
-                                    <h4 class="title hot">
-                                        <a href="chitietphong.php?name=<?php echo $row['room_id'] ?><?php echo $link_url ?>">
-                                        <?php echo $row['title'] ?>					
-                                        </a>
-                                    </h4>
-                                    <div class="location-area ">
-                                        <dl class="address">
-                                            <dt> <?php echo $row['address'] ?> </dt>
-                                        </dl>
-                                    </div>
-                                    <dl class="contact">
-                                        <div class="price">
-                                            Khoảng <?php echo $row['price'] ?> triệu VNĐ/tháng
-                                        </div>
-                                        <span class="published">
-                                            <?php echo $row['last_update'] ?>
-                                        </span>
-                                    </dl>
-                                </div>
-                            </div>										                
-                        </div>     
-    <?php
-        }
-    ?>                  <div class="paginator">
-                            <ul class="pagination">
-                                <?php   
-                                    if ( $page == 1 ) {
-                                        ?><li class="disabled">
-                                            <span>«</span>
-                                        </li><?php
-                                    } else {
-                                        ?><li> 
-                                            <a href="list.php?page=<?php $pre=$page-1; echo $pre ?><?php echo $link_url ?>">
-                                            «
-                                            </a>
-                                        </li><?php
-                                    }
+                                  <div class="info col">
+                                      <div class="star">
+                                          <span class="local">
+                                              <a href="chitietphong.php?name=<?php echo $row['room_id'].$load_link ?>">
+                                                  <?php echo $row['city'] ?>
+                                              </a>							
+                                          </span>
+                                      </div>
+                                      <h4 class="title hot">
+                                          <a href="chitietphong.php?name=<?php echo $row['room_id'].$load_link ?>">
+                                          <?php echo $row['title'] ?>					
+                                          </a>
+                                      </h4>
+                                      <div class="location-area ">
+                                          <dl class="address">
+                                              <dt> <?php echo $row['address'] ?> </dt>
+                                          </dl>
+                                      </div>
+                                      <dl class="contact">
+                                          <div class="price">
+                                              Khoảng <?php echo $row['price'] ?> triệu VNĐ/tháng
+                                          </div>
+                                          <span class="published">
+                                              <?php echo $row['last_update'] ?>
+                                          </span>
+                                      </dl>
+                                  </div>
+                              </div>										                
+                          </div>     
+      <?php
+          }
+      ?>                  <div class="paginator">
+                              <ul class="pagination">
+                                  <?php   
+                                      if ( $page == 1 ) {
+                                          ?><li class="disabled">
+                                              <span>«</span>
+                                          </li><?php
+                                      } else {
+                                          ?><li> 
+                                              <a href="search.php?page=<?php $pre=$page-1; echo $pre ?><?php echo $link_url ?>">
+                                              «
+                                              </a>
+                                          </li><?php
+                                      }
 
-                                    for ($i = max($page-2,1) ; $i<$page; ++$i) { 
-                                        ?><li> 
-                                            <a href="list.php?page=<?php echo $i?><?php echo $link_url ?>">
-                                                <?php echo $i ?>
-                                            </a>
-                                        </li><?php
-                                    }
+                                      for ($i = max($page-2,1) ; $i<$page; ++$i) { 
+                                          ?><li> 
+                                              <a href="search.php?page=<?php echo $i?><?php echo $link_url ?>">
+                                                  <?php echo $i ?>
+                                              </a>
+                                          </li><?php
+                                      }
 
-                                        ?><li class="active" >
-                                            <span><?php echo $page ?></span>
-                                        </li><?php
+                                          ?><li class="active" >
+                                              <span><?php echo $page ?></span>
+                                          </li><?php
 
-                                    for ($i = $page+1 ; $i<=$curPage; ++$i) { 
-                                        ?><li> 
-                                            <a href="list.php?page=<?php echo $i?><?php echo $link_url ?>">
-                                                <?php echo $i ?>
-                                            </a>
-                                        </li><?php
-                                    } 
-                                    if ( $page == $curPage ) {
-                                        ?><li class="disabled">
-                                            <span>»</span>
-                                        </li><?php
-                                    } else {
-                                        ?><li> 
-                                            <a href="list.php?page=<?php $pos=$page+1; echo $pos?><?php echo $link_url ?>">
-                                            »
-                                            </a>
-                                        </li><?php
-                                    } 
-                                ?> 
-                            </ul>											
-                        </div>
-                    </div>
-                </div>
-            </div>		
-        </div>
-    </div>
+                                      for ($i = $page+1 ; $i<=$curPage; ++$i) { 
+                                          ?><li> 
+                                              <a href="search.php?page=<?php echo $i?><?php echo $link_url ?>">
+                                                  <?php echo $i ?>
+                                              </a>
+                                          </li><?php
+                                      } 
+                                      if ( $page == $curPage ) {
+                                          ?><li class="disabled">
+                                              <span>»</span>
+                                          </li><?php
+                                      } else {
+                                          ?><li> 
+                                              <a href="search.php?page=<?php $pos=$page+1; echo $pos?><?php echo $link_url ?>">
+                                              »
+                                              </a>
+                                          </li><?php
+                                      } 
+                                  ?> 
+                              </ul>											
+                          </div>
+                      </div>
     
 </div>
 </body>
