@@ -447,13 +447,14 @@
               $price = $_GET['price'];
               if ($price != "all") {
                 if ($price < 3) $right1 = intval($price) + 1;
-                if ($price < 7) $right1 = intval($price) + 2;
-                if ($price < 10) $right1 = intval($price) + 3;
-                if ($price < 15) $right1 = intval($price) + 5;
-                if ($price == 15) $right1 = intval($price) + 1000;
+                else if ($price < 7) $right1 = intval($price) + 2;
+                else if ($price < 10) $right1 = intval($price) + 3;
+                else if ($price < 15) $right1 = intval($price) + 5;
+                else if ($price == 15) $right1 = intval($price) + 1000;
               }
               else { $right1 = 100;}
             }
+            //echo $price.' '.$right1;
             
             
 
