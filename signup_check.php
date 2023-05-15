@@ -78,8 +78,8 @@ if (isset($_POST['password']) && isset($_POST['email']) && isset($_POST['phone']
             $row = $result3->fetch_assoc();
             $max_id = $row["max_id"];
 
-            $sql2 = "INSERT INTO users(user_id,account_name,password,email,tel) 
-						VALUES($max_id+1,'$name','$pass','$email','$phone')";
+            $sql2 = "INSERT INTO users(user_id,account_name,password,email,tel,permission) 
+						VALUES($max_id+1,'$name','$pass','$email','$phone', 'user')";
             $result2 = $conn->query($sql2);
             if ($result2) {
            	    header("Location: login.php?success=Tài khoản của bạn đã tạo thành công!!! ");

@@ -11,5 +11,10 @@
                 VALUES ($user_id, $room_id)";
         $result = $conn->query($sql);
         echo "Lưu Thành Công";
+    } else {
+        $sql = "DELETE FROM room_booking
+                WHERE user_id = $user_id AND room_id = $room_id";
+        $result = $conn->query($sql);
+        echo "Bỏ Lưu";
     }
 ?>

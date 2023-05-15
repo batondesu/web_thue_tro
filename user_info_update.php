@@ -59,8 +59,7 @@ if (isset($_POST['name']) && isset($_POST['account_name']) && isset($_POST['pass
                         `password` = '$password',
                         `email` = '$email',
                         `tel` = '$phone',
-                        `address` = '$address',
-                        `permission` = 'user'
+                        `address` = '$address'
                     WHERE `user_id` = $user_id";
             $result = $conn->query($sql);
             if ($result) {

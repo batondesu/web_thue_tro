@@ -95,6 +95,18 @@
         $jsonNumber = json_encode($dem);
         
         //echo $jsonNumber."<br/>";
+
+        if (isset($_GET['user_id'])) {
+            $user_id = $_GET['user_id'];
+            $status = 0;
+            $sql = "SELECT * FROM room_booking
+                    WHERE user_id = $user_id AND room_id = $room_id";
+            $checker = $conn->query($sql);
+            
+            if ( $checker->num_rows > 0 ) $status = 1;
+
+            $js_status = json_encode($status);
+        }
     ?>
 
     <script>
@@ -151,6 +163,36 @@
                                                 ?>
 
                                                 <script>
+                                                    function toggleState() {
+                                                        var status = <?php echo $js_status ?>;
+                                                        var element = document.getElementById("myText");
+                                                        //textElement.innerHTML = "Đã Lưu";
+                                                        if (element.classList.contains("state2")) {
+                                                            if (status == 1) element.innerHTML = "Lưu Tin";
+                                                            else element.innerHTML = "Đã Lưu";
+                                                            element.classList.remove("state2");
+                                                        } else {
+                                                            if (status == 1) element.innerHTML = "Lưu Tin";
+                                                            else element.innerHTML = "Đã Lưu";
+                                                            element.classList.add("state2");
+                                                        }
+                                                        var xhr = new XMLHttpRequest();
+                                                        var urlParams = new URLSearchParams(window.location.search);
+                                                        var Value1 = urlParams.get("user_id");
+                                                        var Value2 = urlParams.get("name");
+                                                        var link = "nhap.php?user_id=" +Value1 +"&name=" +Value2;
+                                                        xhr.open("POST", link, true);
+                                                        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                                                        xhr.onreadystatechange = function() {
+                                                            if (xhr.readyState === 4 && xhr.status === 200) {
+                                                                // Xử lý phản hồi từ máy chủ
+                                                                var response = xhr.responseText;
+                                                                alert(response);
+                                                            }
+                                                        }
+                                                        xhr.send();
+                                                    }
+
                                                     function changeText() {
                                                         var textElement = document.getElementById("myText");
                                                         textElement.innerHTML = "Đã Lưu";
@@ -175,7 +217,9 @@
                                                 <?php 
                                                     if (isset($_GET['user_id'])) {
                                                 ?>
-                                                    <a id="myText" class="tag saved heart" onclick="changeText()">Lưu tin</a>
+                                                    <a id="myText" class="tag saved heart" onclick="toggleState()">
+                                                        <?php if ($status == 0) echo 'Lưu Tin'; else echo 'Đã Lưu'; ?>
+                                                    </a>
                                                 <?php 
                                                     }
                                                 ?>
@@ -251,7 +295,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="py-20"></div>
-                                                
+                                                <!--
                                                 <div class="box-info-review" id="hostel-review">
                                                     <h2 class="title">0 <i class="fa fa-star"></i> (Có 0 bài đánh giá)</h2>
                                                     <div class="nav-tabs-custom">
@@ -275,7 +319,7 @@
                                                         </div>
                                                     </div>
                                                     <script type="text/javascript">var hash=window.location.hash;if(hash!=""){var check=$("ul.nav.nav-tabs").find('li a[href="'+hash+'"]');if(check.length>0){$("ul.nav.nav-tabs li").removeClass("active");$("ul.nav.nav-tabs").find('li a[href="'+hash+'"]').parent().addClass("active");$(".tab-content .tab-pane").removeClass("active");$(".tab-content").find(".tab-pane#"+hash.substring(1)).addClass("active");}$("html,body").animate({scrollTop:0},"duration");}</script>
-                                                </div>
+                                                </div> -->
                                             </div>
                                         </div>
                                     </div>
